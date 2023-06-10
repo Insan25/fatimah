@@ -1,3 +1,4 @@
+
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
 -- Server version:               10.4.24-MariaDB - mariadb.org binary distribution
@@ -97,3 +98,4 @@ CREATE TABLE IF NOT EXISTS `penjualan` (
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
+
