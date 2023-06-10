@@ -46,6 +46,10 @@
 
     <script src="<?= base_url() ?>assets/js/dashboard/dashboard-1.js"></script>
 
+    <script src="<?= base_url() ?>assets/plugins/tables/js/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url() ?>assets/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
+    <script src="<?= base_url() ?>assets/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
+
 </body>
 
 </html>

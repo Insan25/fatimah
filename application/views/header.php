@@ -16,6 +16,9 @@
     <!-- Custom Stylesheet -->
     <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
 
+    <!-- Custom Stylesheet -->
+    <link href="<?= base_url() ?>assets/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 </head>
 
 <body>
