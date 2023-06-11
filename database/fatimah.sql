@@ -16,12 +16,10 @@
 
 
 -- Dumping database structure for fatimah
-DROP DATABASE IF EXISTS `fatimah`;
 CREATE DATABASE IF NOT EXISTS `fatimah` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 USE `fatimah`;
 
 -- Dumping structure for table fatimah.barang
-DROP TABLE IF EXISTS `barang`;
 CREATE TABLE IF NOT EXISTS `barang` (
   `kd_barang` varchar(50) NOT NULL,
   `nm_barang` varchar(50) DEFAULT NULL,
@@ -36,7 +34,6 @@ CREATE TABLE IF NOT EXISTS `barang` (
 -- Data exporting was unselected.
 
 -- Dumping structure for table fatimah.itempembelian
-DROP TABLE IF EXISTS `itempembelian`;
 CREATE TABLE IF NOT EXISTS `itempembelian` (
   `id_barang` varchar(50) DEFAULT NULL,
   `qty` int(11) DEFAULT NULL,
@@ -51,7 +48,6 @@ CREATE TABLE IF NOT EXISTS `itempembelian` (
 -- Data exporting was unselected.
 
 -- Dumping structure for table fatimah.itempenjualan
-DROP TABLE IF EXISTS `itempenjualan`;
 CREATE TABLE IF NOT EXISTS `itempenjualan` (
   `kode_barang` varchar(50) DEFAULT NULL,
   `qty` int(11) DEFAULT NULL,
@@ -66,7 +62,6 @@ CREATE TABLE IF NOT EXISTS `itempenjualan` (
 -- Data exporting was unselected.
 
 -- Dumping structure for table fatimah.karyawan
-DROP TABLE IF EXISTS `karyawan`;
 CREATE TABLE IF NOT EXISTS `karyawan` (
   `id_karyawan` int(11) NOT NULL AUTO_INCREMENT,
   `nm_karyawan` varchar(50) DEFAULT NULL,
@@ -77,7 +72,6 @@ CREATE TABLE IF NOT EXISTS `karyawan` (
 -- Data exporting was unselected.
 
 -- Dumping structure for table fatimah.kategori
-DROP TABLE IF EXISTS `kategori`;
 CREATE TABLE IF NOT EXISTS `kategori` (
   `id_kategori` int(11) NOT NULL AUTO_INCREMENT,
   `nm_kategori` varchar(50) DEFAULT NULL,
@@ -87,7 +81,6 @@ CREATE TABLE IF NOT EXISTS `kategori` (
 -- Data exporting was unselected.
 
 -- Dumping structure for table fatimah.pembelian
-DROP TABLE IF EXISTS `pembelian`;
 CREATE TABLE IF NOT EXISTS `pembelian` (
   `id_pembelian` int(11) NOT NULL AUTO_INCREMENT,
   `tanggal` int(11) DEFAULT NULL,
@@ -100,7 +93,6 @@ CREATE TABLE IF NOT EXISTS `pembelian` (
 -- Data exporting was unselected.
 
 -- Dumping structure for table fatimah.penjualan
-DROP TABLE IF EXISTS `penjualan`;
 CREATE TABLE IF NOT EXISTS `penjualan` (
   `id_penjualan` int(11) NOT NULL AUTO_INCREMENT,
   `tanggal` int(11) DEFAULT NULL,
