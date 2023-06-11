@@ -40,6 +40,8 @@ class Barang extends CI_Controller {
 	public function tambah_barang()
 
 	{
+		$data_barang = $this->Model_Barang->get_barang_all();
+
 		$data = array(
 			'action' => site_url('barang/proses_tambah_barang'),
 			'kode_barang' => set_value('kd_barang'),
@@ -47,7 +49,7 @@ class Barang extends CI_Controller {
 			'harga_beli' => set_value('harga_beli'),
 			'harga_jual' => set_value('harga_jual'),
 			'id_kategori' => set_value('id_kategori'),
-
+			'data_barang' => $data_barang
 		);
 		$this->template->load('template/admin', 'form_pelatih', $data);
 	} //kalo ini melempar nama array biasa sebelah kanan adalah nama form
@@ -76,13 +78,14 @@ class Barang extends CI_Controller {
 			);
 
 			$this->Model_Barang->insert($data);
-<<<<<<< Updated upstream
+
 			redirect(site_url('Barang'));
-		}
-=======
+
+			redirect(site_url('Barang/tambah_barang'));
+
 			redirect(site_url('Barang/tambah_barang'));
 		} // Sebelah kiri merupakan nama database
->>>>>>> Stashed changes
+
 		
 	}
 }
