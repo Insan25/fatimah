@@ -49,7 +49,7 @@ class Barang extends CI_Controller {
 			'id_kategori' => set_value('id_kategori'),
 
 		);
-		$this->template->load('template/admin', 'form_pelatih', $data);
+		$this->template->load('template/admin', 'form_tambahbarang', $data);
 	}
 	
 	public function _rules()
