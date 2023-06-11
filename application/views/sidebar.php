@@ -12,7 +12,7 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="<?php echo site_url('Barang'); ?>">Data Barang</a></li>
-                            <li><a href="<?php echo site_url('Transaksi'); ?>">Data Transaksi</a></li>
+                            <li><a href="<?php echo site_url('Kategori'); ?>">Data Kategori</a></li>
                             <!-- <li><a href="./index-2.html">Home 2</a></li> -->
                         </ul>
                     </li>
