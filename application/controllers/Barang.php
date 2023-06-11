@@ -50,7 +50,7 @@ class Barang extends CI_Controller {
 
 		);
 		$this->template->load('template/admin', 'form_pelatih', $data);
-	}
+	} //kalo ini melempar nama array biasa sebelah kanan adalah nama form
 	
 	public function _rules()
 	{
@@ -76,8 +76,13 @@ class Barang extends CI_Controller {
 			);
 
 			$this->Model_Barang->insert($data);
+<<<<<<< Updated upstream
 			redirect(site_url('Barang'));
 		}
+=======
+			redirect(site_url('Barang/tambah_barang'));
+		} // Sebelah kiri merupakan nama database
+>>>>>>> Stashed changes
 		
 	}
 }
