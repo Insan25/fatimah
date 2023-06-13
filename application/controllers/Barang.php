@@ -83,7 +83,6 @@ class Barang extends CI_Controller {
 
 			redirect(site_url('Barang/tambah_barang'));
 
-			redirect(site_url('Barang/tambah_barang'));
 		} // Sebelah kiri merupakan nama database
 
 		
