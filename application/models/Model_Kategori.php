@@ -17,4 +17,9 @@ class Model_Kategori extends CI_Model {
     function insert($data){
         $this->db->insert('kategori',$data);
     }
+
+    function delete_kategori($id_kategori){
+        $this->db->where('id_kategori', $id_kategori);
+        $this->db->delete('kategori'); 
+    }
 }
