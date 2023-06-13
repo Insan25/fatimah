@@ -33,4 +33,45 @@ class Kategori extends CI_Controller {
         );
 		$this->template->load('template/admin', 'kategori',$data);
 	}
+
+	public function tambah_kategori()
+	{
+		$kategori_data = $this->Model_Kategori->get_kategori_all();
+
+		$data = array(
+			'action' => site_url('kategori/proses_tambah_kategori'),
+			'id_kategori' => set_value('id_kategori'),
+			'nm_kategori' => set_value('nm_kategori'),
+			'kategori' => $kategori_data
+		);
+		$this->template->load('template/admin','form_kategori',$data);
+	}
+
+
+	public function _rules()
+	{
+		$this->form_validation->set_rules('nm_kategori','Nama Kategori', 'trim|required');
+	
+	}
+
+	public function proses_tambah_kategori()
+	{
+		$this->_rules();
+		if($this->form_validation->run() == FALSE) {
+			$this->tambah_kategori();
+		} else {
+			$data = array(
+			'nm_kategori' => $this->input->post('nm_kategori'),
+			);
+
+			$this->Model_Kategori->insert($data);
+
+			redirect(site_url('Kategori'));
+
+			redirect(site_url('Kategori/tambah_kategori'));
+
+		} // Sebelah kiri merupakan nama database
+	}
+
+
 }
