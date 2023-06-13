@@ -72,6 +72,10 @@ class Kategori extends CI_Controller {
 
 		} // Sebelah kiri merupakan nama database
 	}
+	public function hapus_kategori($id_kategori){
+	$this->Model_Kategori->delete_kategori($id_kategori);
+	redirect(site_url('kategori'));
 
+	}
 
 }
