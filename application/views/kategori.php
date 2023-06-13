@@ -21,7 +21,7 @@
                                 <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Data Table</h4>
-                                    <a href=<?php echo site_url('Barang/tambah_barang') ?> ><button type="button" class="btn mb-1 btn-primary">Tambah +</button></a>
+                                    <a href=<?php echo site_url('Kategori/tambah_kategori') ?> ><button type="button" class="btn mb-1 btn-primary">Tambah +</button></a>
                                     <div class="table-responsive">
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
