@@ -84,7 +84,12 @@ class Barang extends CI_Controller {
 			redirect(site_url('Barang/tambah_barang'));
 
 		} // Sebelah kiri merupakan nama database
-
 		
+	}
+
+	public function hapus_barang($kd_barang)
+	{
+		$this->Model_Barang->delete_barang($kd_barang);
+		redirect(site_url('barang'));
 	}
 }

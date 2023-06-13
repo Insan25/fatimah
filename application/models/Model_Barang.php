@@ -18,4 +18,9 @@ class Model_Barang extends CI_Model {
     function insert($data){
         $this->db->insert('barang',$data);
     }
+
+    function delete_barang($kd_barang){
+        $this->db->where('kd_barang', $kd_barang);
+        $this->db->delete('barang');
+    }
 }

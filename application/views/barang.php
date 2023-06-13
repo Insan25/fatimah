@@ -31,6 +31,7 @@
                                                 <th>Harga Beli</th>
                                                 <th>Harga Jual</th>
                                                 <th>Kategori</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -42,6 +43,9 @@
                                                 <td><?php echo $barang->harga_beli; ?></td>
                                                 <td><?php echo $barang->harga_jual; ?></td>
                                                 <td><?php echo $barang->nm_kategori; ?></td>
+                                                <td> 
+                                                <a href="<?php echo site_url('Barang/hapus_barang/'.$barang->kd_barang);?>"><button type="button" class="btn btn-sm btn-danger">Hapus</button></a>
+                                                <a href=<?php echo site_url('Barang/tambah_barang') ?> ><button type="button" class="btn btn-sm btn-info">Edit</button></a></td>
                                             </tr>
 
                                             <?php } ?>
@@ -55,6 +59,7 @@
                                                 <th>Harga Beli</th>
                                                 <th>Harga Jual</th>
                                                 <th>Kategori</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </tfoot>
                                     </table>
