@@ -14,5 +14,7 @@ class Model_Kategori extends CI_Model {
         return $this->db->query($sql)->result();
     }
 
-   
+    function insert($data){
+        $this->db->insert('kategori',$data);
+    }
 }
