@@ -20,14 +20,15 @@
                             <div class="col-12">
                                 <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Data Table</h4>
+                                    <h4 class="card-title">Data Kategori</h4>
                                     <a href=<?php echo site_url('Kategori/tambah_kategori') ?> ><button type="button" class="btn mb-1 btn-primary">Tambah +</button></a>
                                     <div class="table-responsive">
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
                                             <tr>
-                                                <th>Id Kategori</th>
+                                                <th>No. Kategori</th>
                                                 <th>Nama Kategori</th>
+                                                <th> Aksi </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -36,6 +37,10 @@
                                             <tr>
                                                 <td><?php echo $jenis->id_kategori; ?></td>
                                                 <td><?php echo $jenis->nm_kategori; ?></td>
+                                                <td>
+                                                <a href="<?php echo site_url('kategori/hapus_kategori/'.$jenis->id_kategori); ?>"><button type="button" class="btn btn-sm btn-danger">Hapus</button></a>
+                                                <a href=<?php echo site_url('Kategori/tambah_kategori') ?> ><button type="button" class="btn btn-sm btn-info">Edit</button></a>
+                                            </td>
                                             </tr>
 
                                             <?php } ?>
@@ -44,8 +49,9 @@
                                         </tbody>
                                         <tfoot>
                                         <tr>
-                                                <th>Id Kategori</th>
+                                                <th>No. Kategori</th>
                                                 <th>Nama Kategori</th>
+                                                <th> Aksi </th>
                                             </tr>
                                         </tfoot>
                                     </table>
