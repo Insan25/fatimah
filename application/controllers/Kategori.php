@@ -78,4 +78,36 @@ class Kategori extends CI_Controller {
 
 	}
 
+	public function edit_kategori($id_kategori){
+		
+		$data_kategori = $this->Model_Kategori->get_kategori($id_kategori);
+		$kategori_data = $this->Model_Kategori->get_kategori_all();
+		$data = array(
+			'action' => site_url('kategori/proses_ubah_kategori'),
+			'id_kategori' => set_value('id_kategori'),
+			'nm_kategori' => $data_kategori->nm_kategori,
+			'kategori' => $kategori_data
+		);
+
+		$this->template->load('template/admin','form_kategori',$data);
+	}
+
+	public function proses_ubah_kategori()
+	{
+		$this->_rules();
+		if($this->form_validation->run() == FALSE) {
+			$id_kategori = $this->input->post('id_kategori');
+			$this->edit_kategori($id_kategori);
+		} else {
+			$id_kategori = $this->input->post('id_kategori');
+			$data = array(
+				'id_kategori' =>$this->input->post('id_kategori'),
+				'nm_kategori' => $this->input->post('nm_kategori')
+			);
+
+			$this->Model_Kategori->update($id_kategori, $data);
+			redirect(site_url('Kategori'));
+		}
+	}
+
 }
