@@ -39,7 +39,7 @@
                                                 <td><?php echo $jenis->nm_kategori; ?></td>
                                                 <td>
                                                 <a href="<?php echo site_url('kategori/hapus_kategori/'.$jenis->id_kategori); ?>"><button type="button" class="btn btn-sm btn-danger">Hapus</button></a>
-                                                <a href=<?php echo site_url('Kategori/tambah_kategori') ?> ><button type="button" class="btn btn-sm btn-info">Edit</button></a>
+                                                <a href="<?php echo site_url('Kategori/edit_kategori/'.$jenis->id_kategori); ?>"><button type="button" class="btn btn-sm btn-info">Edit</button></a>
                                             </td>
                                             </tr>
 
