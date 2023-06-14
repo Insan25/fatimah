@@ -49,10 +49,10 @@
         <div class="nav-header">
             <div class="brand-logo">
                 <a href="index.html">
-                    <b class="logo-abbr"><img src="<?= base_url() ?>assets/images/logo_.png" alt=""> </b>
+                    <b class="logo-abbr"><img src="<?= base_url() ?>assets/images/logo-apa.png" alt=""> </b>
                     <span class="logo-compact"><img src="<?= base_url() ?>assets/images/logo-compact.png" alt=""></span>
                     <span class="brand-title">
-                        <img src="<?= base_url() ?>assets/images/logo-text.png" alt="">
+                        <img src="<?= base_url() ?>assets/images/logo-fatimah.png" alt="">
                     </span>
                 </a>
             </div>
