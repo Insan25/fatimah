@@ -27,7 +27,7 @@
                                         <form method="POST" action="<?php echo $action ?>">
                                         <div class="form-group col-md-12">
                                             <label>Nama Kategori</label>
-                                            <input type="hidden" name="id_kategori" >
+                                            <input type="hidden" name="id_kategori" value="<?php echo $id_kategori?>" >
                                             <input type="text" name="nm_kategori" class="form-control" value=" <?php echo $nm_kategori ?>"
                                             id="nm_kategori" autofocus>
                                         </div>
