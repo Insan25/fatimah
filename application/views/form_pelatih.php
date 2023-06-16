@@ -45,6 +45,10 @@
                                             <input type="text" name="harga_jual" class="form-control" value="<?php echo $harga_jual ?>">
                                         </div>
                                         <div class="form-group col-md-12">
+                                            <label>Stok</label>
+                                            <input type="text" name="stok" class="form-control" value="<?php echo $stok ?>">
+                                        </div>
+                                        <div class="form-group col-md-12">
                                             <label>Kategori</label>
                                             <input type="text" name="id_kategori" class="form-control" value="<?php echo $id_kategori ?>">
                                         </div>
