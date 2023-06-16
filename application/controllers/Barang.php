@@ -48,6 +48,7 @@ class Barang extends CI_Controller {
 			'nama_barang' => set_value('nm_barang'),
 			'harga_beli' => set_value('harga_beli'),
 			'harga_jual' => set_value('harga_jual'),
+			'stok' => set_value('stok'),
 			'id_kategori' => set_value('id_kategori'),
 			'data_barang' => $data_barang
 		);
@@ -60,6 +61,7 @@ class Barang extends CI_Controller {
 		$this->form_validation->set_rules('nama_barang','Nama Barang', 'trim|required');
 		$this->form_validation->set_rules('harga_beli','Harga Beli','trim|required');
 		$this->form_validation->set_rules('harga_jual','Harga Jual','trim|required');
+		$this->form_validation->set_rules('stok','Stok','trim|required');
 		$this->form_validation->set_rules('id_kategori','Id Kategori','trim|required');
 	}
 
@@ -74,6 +76,7 @@ class Barang extends CI_Controller {
 			'nm_barang' => $this->input->post('nama_barang'),
 			'harga_beli' => $this->input->post('harga_beli'),
 			'harga_jual' => $this->input->post('harga_jual'),
+			'stok' => $this->input->post('stok'),
 			'id_kategori' => $this->input->post('id_kategori'),
 			);
 
