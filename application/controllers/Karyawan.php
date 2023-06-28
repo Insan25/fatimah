@@ -90,10 +90,10 @@ class Karyawan extends CI_Controller {
 		$karyawan_data = $this->Model_Karyawan->get_karyawan($id_karyawan);
 		$data_karyawan = $this->Model_Karyawan->get_karyawan_all();
 		$data = array(
-			'action' => site_url('kategori/proses_ubah_karyawan'),
-			'id_karyawan' => $data_karyawan->id_karyawan,
-			'nm_karyawan' => $data_karyawan->nm_karyawan,
-			'password' =>$data_karyawan->password,
+			'action' => site_url('Karyawan/proses_ubah_karyawan'),
+			'id_karyawan' => $karyawan_data->id_karyawan,
+			'nm_karyawan' => $karyawan_data->nm_karyawan,
+			'password' =>$karyawan_data->password,
 			'karyawan' => $data_karyawan
 		);
 
@@ -107,14 +107,13 @@ class Karyawan extends CI_Controller {
 			$id_karyawan = $this->input->post('id_karyawan');
 			$this->edit_karyawan($id_karyawan);
 		} else {
-			$id_kategori = $this->input->post('id_karyawan');
+			$id_karyawan = $this->input->post('id_karyawan');
 			$data = array(
-				'id_karyawan' =>$this->input->post('id_karyawan'),
 				'nm_karyawan' => $this->input->post('nm_karyawan'),
 				'password' => $this->input->post('password')
 			);
 
-			$this->Model_Kategori->update($id_karyawan, $data);
+			$this->Model_Karyawan->update($id_karyawan, $data);
 			redirect(site_url('Karyawan'));
 		}
 	}

@@ -28,7 +28,7 @@
                                         <div class="form-group col-md-12">
                                             <label>Nama Kategori</label>
                                             <input type="hidden" name="id_kategori" value="<?php echo $id_kategori?>" >
-                                            <input type="text" name="nm_kategori" class="form-control" value=" <?php echo $nm_kategori ?>"
+                                            <input type="text" name="nm_kategori" class="form-control" value="<?php echo $nm_kategori ?>"
                                             id="nm_kategori" autofocus>
                                         </div>
                                         <div class="form-group col-md-12">
@@ -36,42 +36,6 @@
                                             <a href="<?= site_url('Kategori') ?>" class="btn mb-1 btn-danger">Kembali</a>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body">
-                            <h4 class="card-title">Data Barang</h4>
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered zero-configuration">
-                                        <thead>
-                                            <tr>
-                                                <th>Id Kategori</th>
-                                                <th>Nama Kategori</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php 
-                                            foreach($kategori as $jenis) { ?>
-                                            <tr>
-                                                <td><?php echo $jenis->id_kategori; ?></td>
-                                                <td><?php echo $jenis->nm_kategori; ?></td>
-                                            </tr>
-
-                                            <?php } ?>
-                                            
-                                            
-                                        </tbody>
-                                        <tfoot>
-                                        <tr>
-                                                <th>Id Kategori</th>
-                                                <th>Nama Kategori</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                
                                 </div>
                             </div>
                         </div>
