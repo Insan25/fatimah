@@ -28,7 +28,7 @@
                                         <div class="form-group col-md-12">
                                             <label>Nama Karyawan</label>
                                             <input type="hidden" name="id_karyawan" value="<?php echo $id_karyawan?>" >
-                                            <input type="text" name="nm_karyawan" class="form-control" value=" <?php echo $nm_karyawan ?>" id="nm_karyawan" autofocus>
+                                            <input type="text" name="nm_karyawan" class="form-control" value="<?php echo $nm_karyawan ?>" id="nm_karyawan" autofocus>
                                         </div>
                                         <div class="form-group col-md-12">
                                         <label>Password</label>
@@ -39,42 +39,6 @@
                                             <a href="<?= site_url('Karyawan') ?>" class="btn mb-1 btn-danger">Kembali</a>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body">
-                            <h4 class="card-title">Data Barang</h4>
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered zero-configuration">
-                                        <thead>
-                                            <tr>
-                                                <th>Id Karyawan</th>
-                                                <th>Nama Karyawan</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php 
-                                            foreach($karyawan as $jenis) { ?>
-                                            <tr>
-                                                <td><?php echo $jenis->id_karyawan; ?></td>
-                                                <td><?php echo $jenis->nm_karyawan; ?></td>
-                                            </tr>
-
-                                            <?php } ?>
-                                            
-                                            
-                                        </tbody>
-                                        <tfoot>
-                                        <tr>
-                                                <th>Id Karyawan</th>
-                                                <th>Nama Karyawan</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                
                                 </div>
                             </div>
                         </div>
