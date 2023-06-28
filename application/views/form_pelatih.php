@@ -32,7 +32,7 @@
                                         <form method="POST" action="<?php echo $action ?>">
                                         <div class="form-group col-md-12">
                                             <label>Nama Barang</label>
-                                            <input type="hidden" name="kd_barang" id="kd_barang">
+                                            <input type="hidden" name="kd_barang" id="kode_barang" value=" <?php echo $kd_barang ?>">
                                             <input type="text" name="nm_barang" class="form-control" value=" <?php echo $nm_barang ?>"
                                             id="nm_barang">
                                         </div>
