@@ -30,8 +30,8 @@
                                                 <th>Nama Barang</th>
                                                 <th>Harga Beli</th>
                                                 <th>Harga Jual</th>
-                                                <th>Kategori</th>
                                                 <th>Stok</th>
+                                                <th>Kategori</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -60,8 +60,8 @@
                                                 <th>Nama Barang</th>
                                                 <th>Harga Beli</th>
                                                 <th>Harga Jual</th>
-                                                <th>Kategori</th>
                                                 <th>Stok</th>
+                                                <th>Kategori</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </tfoot>
