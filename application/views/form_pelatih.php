@@ -26,15 +26,15 @@
                                     <div class="form">
                                         <div class="form-group col-md-12">
                                             <label>Kode Barang</label>
-                                            <input type="text" name="kode_barang" class="form-control" value=" <?php echo $kode_barang ?>"
+                                            <input type="text" name="kd_barang" class="form-control" value=" <?php echo $kd_barang ?>"
                                             id="kd_barang" onkeypress="nextfieldBarcode(event)" autofocus>
                                         </div>
                                         <form method="POST" action="<?php echo $action ?>">
                                         <div class="form-group col-md-12">
                                             <label>Nama Barang</label>
-                                            <input type="hidden" name="kd_barang" id="kode_barang">
-                                            <input type="text" name="nama_barang" class="form-control" value=" <?php echo $nama_barang ?>"
-                                            id="nama_barang">
+                                            <input type="hidden" name="kd_barang" id="kd_barang">
+                                            <input type="text" name="nm_barang" class="form-control" value=" <?php echo $nm_barang ?>"
+                                            id="nm_barang">
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label>Harga Beli</label>

@@ -85,5 +85,39 @@ class Karyawan extends CI_Controller {
 		} // Sebelah kiri merupakan nama database
 	}
 
+	public function edit_karyawan($id_karyawan){
+		
+		$karyawan_data = $this->Model_Karyawan->get_karyawan($id_karyawan);
+		$data_karyawan = $this->Model_Karyawan->get_karyawan_all();
+		$data = array(
+			'action' => site_url('kategori/proses_ubah_karyawan'),
+			'id_karyawan' => $data_karyawan->id_karyawan,
+			'nm_karyawan' => $data_karyawan->nm_karyawan,
+			'password' =>$data_karyawan->password,
+			'karyawan' => $data_karyawan
+		);
+
+		$this->template->load('template/admin','form_karyawan',$data);
+	}
+
+	public function proses_ubah_karyawan()
+	{
+		$this->_rules();
+		if($this->form_validation->run() == FALSE) {
+			$id_karyawan = $this->input->post('id_karyawan');
+			$this->edit_karyawan($id_karyawan);
+		} else {
+			$id_kategori = $this->input->post('id_karyawan');
+			$data = array(
+				'id_karyawan' =>$this->input->post('id_karyawan'),
+				'nm_karyawan' => $this->input->post('nm_karyawan'),
+				'password' => $this->input->post('password')
+			);
+
+			$this->Model_Kategori->update($id_karyawan, $data);
+			redirect(site_url('Karyawan'));
+		}
+	}
+
 
 }

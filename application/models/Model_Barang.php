@@ -23,4 +23,16 @@ class Model_Barang extends CI_Model {
         $this->db->where('kd_barang', $kd_barang);
         $this->db->delete('barang');
     }
+
+    function get_barang($kd_barang)
+    {
+        $this->db->where('kd_barang',$kd_barang);
+        return $this->db->get('barang')->row();
+    }
+
+    function update($kd_barang, $data)
+    {
+        $this->db->where('kd_barang', $kd_barang);
+        $this->db->update('barang', $data);
+    }
 }
