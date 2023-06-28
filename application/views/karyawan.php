@@ -20,34 +20,27 @@
                             <div class="col-12">
                                 <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Data Barang</h4>
-                                    <a href=<?php echo site_url('Barang/tambah_barang') ?> ><button type="button" class="btn mb-1 btn-primary">Tambah +</button></a>
+                                    <h4 class="card-title">Data Kategori</h4>
+                                    <a href=<?php echo site_url('Karyawan/tambah_karyawan') ?> ><button type="button" class="btn mb-1 btn-primary">Tambah +</button></a>
                                     <div class="table-responsive">
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
                                             <tr>
-                                                <th>Kode Barang</th>
-                                                <th>Nama Barang</th>
-                                                <th>Harga Beli</th>
-                                                <th>Harga Jual</th>
-                                                <th>Stok</th>
-                                                <th>Kategori</th>
-                                                <th>Aksi</th>
+                                                <th>No. Karyawan</th>
+                                                <th>Nama Karyawan</th>
+                                                <th> Aksi </th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php 
-                                            foreach($data_barang as $barang) { ?>
+                                           <?php 
+                                            foreach($karyawan as $krwn) { ?>
                                             <tr>
-                                                <td><?php echo $barang->kd_barang; ?></td>
-                                                <td><?php echo $barang->nm_barang; ?></td>
-                                                <td><?php echo $barang->harga_beli; ?></td>
-                                                <td><?php echo $barang->harga_jual; ?></td>
-                                                <td><?php echo $barang->stok; ?></td>
-                                                <td><?php echo $barang->nm_kategori; ?></td>
-                                                <td> 
-                                                <a href="<?php echo site_url('Barang/hapus_barang/'.$barang->kd_barang);?>"><button type="button" class="btn btn-sm btn-danger">Hapus</button></a>
-                                                <a href=<?php echo site_url('Barang/tambah_barang') ?> ><button type="button" class="btn btn-sm btn-info">Edit</button></a></td>
+                                                <td><?php echo $krwn->id_karyawan; ?></td>
+                                                <td><?php echo $krwn->nm_karyawan; ?></td>
+                                                <td>
+                                                <a href="<?php echo site_url('karyawan/hapus_karyawan/'.$krwn->id_karyawan); ?>"><button type="button" class="btn btn-sm btn-danger">Hapus</button></a>
+                                                <a href="<?php echo site_url('Karyawan/edit_karyawan/'.$krwn->id_karyawan); ?>"><button type="button" class="btn btn-sm btn-info">Edit</button></a>
+                                            </td>
                                             </tr>
 
                                             <?php } ?>
@@ -56,13 +49,9 @@
                                         </tbody>
                                         <tfoot>
                                         <tr>
-                                                <th>Kode Barang</th>
-                                                <th>Nama Barang</th>
-                                                <th>Harga Beli</th>
-                                                <th>Harga Jual</th>
-                                                <th>Stok</th>
-                                                <th>Kategori</th>
-                                                <th>Aksi</th>
+                                                <th>No. Karyawan</th>
+                                                <th>Nama Karyawan</th>
+                                                <th> Aksi </th>
                                             </tr>
                                         </tfoot>
                                     </table>
