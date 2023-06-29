@@ -22,8 +22,8 @@
                             <i class="fa fa-money"></i><span class="nav-text">Transaksi</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./chart-flot.html">Data Pembelian</a></li>
-                            <li><a href="./chart-flot.html">Data Penjualan</a></li>
+                            <li><a href="<?php echo site_url('Pembelian'); ?>">Data Pembelian</a></li>
+                            <li><a href="<?php echo site_url('Penjualan'); ?>">Data Penjualan</a></li>
 
                         </ul>
                     </li>
