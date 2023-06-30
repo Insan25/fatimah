@@ -32,8 +32,8 @@
                             <i class="icon-graph menu-icon"></i> <span class="nav-text">Laporan</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./chart-flot.html">Laporan Pembelian</a></li>
-                            <li><a href="./chart-morris.html">Laporan Penjualan</a></li>
+                            <li><a href="<?php echo site_url('LapPembelian'); ?>">Laporan Pembelian</a></li>
+                            <li><a href="<?php echo site_url('LapPenjualan'); ?>">Laporan Penjualan</a></li>
                         </ul>
                     </li>
 
