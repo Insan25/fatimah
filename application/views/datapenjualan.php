@@ -21,49 +21,51 @@
                                 <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Data Penjualan</h4>
-                                    <a href=<?php echo site_url() ?> ><button type="button" class="btn mb-1 btn-primary">Tambah +</button></a>
+                                    <a href=<?php echo site_url('Penjualan/tambah_penjualan') ?> ><button type="button" class="btn mb-1 btn-primary">Tambah +</button></a>
                                     <div class="table-responsive">
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
                                             <tr>
-                                                <th>No.</th>
-                                                <th>Penjualan ID</th>
-                                                <th>Tanggal</th>
-                                                <th>Pembuat</th>
-                                                <th>Jlh. Barang</th>
-                                                <th>Total</th>
-                                                <th>PPN</th>
-                                                <th>Grand Total</th>
-                                                <th>Aksi</th>
+                                                <th class="text-center">No.</th>
+                                                <th class="text-center">Penjualan ID</th>
+                                                <th class="text-center">Tanggal</th>
+                                                <th class="text-center">Pembuat</th>
+                                                <th class="text-center">Jlh. Barang</th>
+                                                <th class="text-center">Jlh. Items</th>
+                                                <th class="text-center">Total</th>
+                                                <th class="text-center">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td><td>
-                                                <td></td>
-                                                <td></td>
-                                                <td> 
-                                                <a href=<?php echo site_url()?>><button type="button" class="btn btn-sm btn-danger">Hapus</button></a>
-                                                <a href="<?php echo site_url()?>"><button type="button" class="btn btn-sm btn-info">Edit</button></a></td>
-                                            </tr>
+                                            <?php 
+                                                $no = 1;
+                                                foreach($penjualan as $row) { ?>
+                                                <tr>
+                                                    <td align="center"><?php echo $no; ?></td>
+                                                    <td class="text-center"><?php echo $row->id_penjualan; ?></td>
+                                                    <td class="text-center"><?php echo $row->tanggal; ?></td>
+                                                    <td><?php echo $row->nm_karyawan; ?></td>
+                                                    <td align="right"><?php echo $row->jlh_barang; ?></td>
+                                                    <td align="right"><?php echo $row->jlh_item; ?></td>
+                                                    <td align="right"><?php echo number_format($row->total,2,',','.'); ?></td>
+                                                    <td class="text-center">
+                                                        <a href="<?php echo site_url('Penjualan/detail/'.$row->id_penjualan); ?>" class="btn btn-sm btn-primary">Detail</a>
+                                                    </td>
+                                                </tr>
 
+                                            <?php $no++; } ?>
                                             
                                         </tbody>
                                         <tfoot>
-                                        <tr>
-                                                <th>No.</th>
-                                                <th>Penjualan ID</th>
-                                                <th>Tanggal</th>
-                                                <th>Pembuat</th>
-                                                <th>Jlh. Barang</th>
-                                                <th>Total</th>
-                                                <th>PPN</th>
-                                                <th>Grand Total</th>
-                                                <th>Aksi</th>
+                                            <tr>
+                                                <th class="text-center">No.</th>
+                                                <th class="text-center">Penjualan ID</th>
+                                                <th class="text-center">Tanggal</th>
+                                                <th class="text-center">Pembuat</th>
+                                                <th class="text-center">Jlh. Barang</th>
+                                                <th class="text-center">Jlh. Items</th>
+                                                <th class="text-center">Total</th>
+                                                <th class="text-center">Aksi</th>
                                             </tr>
                                         </tfoot>
                                     </table>
