@@ -26,8 +26,8 @@ class Model_Penjualan extends CI_Model {
         $this->db->insert('penjualan',$data);
     }
 
-    public function insert_item($kode_barang, $qty, $harga_jual, $id_penjualan){
-        $this->db->query('INSERT INTO itempenjualan(kode_barang,qty,harga_jual,id_penjualan) values("' . $kode_barang . '",' . $qty . ',' . $harga_jual . ',' . $id_penjualan . ') 
+    public function insert_item($kode_barang, $qty, $harga, $id_penjualan){
+        $this->db->query('INSERT INTO itempenjualan(kode_barang,qty,harga_jual,id_penjualan) values("' . $kode_barang . '",' . $qty . ',' . $harga . ',' . $id_penjualan . ') 
                             ON DUPLICATE KEY update qty=qty+1');
 
         return true;
