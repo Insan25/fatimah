@@ -42,7 +42,7 @@ class Penjualan extends CI_Controller {
 		date_default_timezone_set('Asia/Makassar');
 		$data = array(
 			'tanggal' => date('Y-m-d H:i:s'),
-			'id_karyawan' => 1,
+			'id_karyawan' => 4,
 		);
 
 		$this->Model_Penjualan->insert($data);
