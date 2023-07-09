@@ -50,7 +50,8 @@
                                                     <td align="right"><?php echo number_format($row->total,2,',','.'); ?></td>
                                                     <td class="text-center">
                                                         <a href="<?php echo site_url('Penjualan/detail/'.$row->id_penjualan); ?>" class="btn btn-sm btn-primary">Detail</a>
-                                                    </td>
+                                                        <a href="<?php echo site_url('Penjualan/cetak/'.$row->id_penjualan); ?>" target="_blank" class="btn btn-sm btn-warning">Cetak</a>
+                                                    </td>   
                                                 </tr>
 
                                             <?php $no++; } ?>

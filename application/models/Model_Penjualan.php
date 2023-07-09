@@ -48,7 +48,9 @@ class Model_Penjualan extends CI_Model {
 
     public function get_item_penjualan($id_penjualan){
 
-        $sql = "SELECT * from penjualan, itempenjualan, barang
+        $sql = "SELECT *,
+                (itempenjualan.qty * itempenjualan.harga_jual) AS subtotal 
+                from penjualan, itempenjualan, barang
                 WHERE penjualan.id_penjualan = itempenjualan.id_penjualan
                 AND barang.kd_barang = itempenjualan.kode_barang
                 AND itempenjualan.id_penjualan = $id_penjualan";
