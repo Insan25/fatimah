@@ -71,6 +71,24 @@ class Penjualan extends CI_Controller {
 		$this->template->load('template/admin','form_itempenjualan',$data);
 	}
 
+	public function cetak($id_penjualan){
+		
+		$penjualan_data = $this->Model_Penjualan->get_penjualan($id_penjualan);
+		$itempenjualan_data = $this->Model_Penjualan->get_item_penjualan($id_penjualan);
+		$data = array(
+			'action' => site_url('Penjualan/proses_tambah_item'),
+			'id_penjualan' => $id_penjualan,
+			'tanggal' => $penjualan_data->tanggal,
+			'nm_karyawan' => $penjualan_data->nm_karyawan,
+			'jlh_barang' => $penjualan_data->jlh_barang,
+			'jlh_item' => $penjualan_data->jlh_item,
+			'total' => $penjualan_data->total,
+			'itempenjualan_data' => $itempenjualan_data
+		);
+
+		$this->load->view('nota_generic',$data);
+	}
+
 	public function _rules()
 	{
 		$this->form_validation->set_rules('kode_barang','Kode Barang', 'trim|required');
