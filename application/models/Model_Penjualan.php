@@ -72,5 +72,18 @@ class Model_Penjualan extends CI_Model {
        return $res;
 
 	}
+
+    public function delete_penjualan($id_penjualan){
+        $this->db->where('id_penjualan', $id_penjualan);
+        $this->db->delete('penjualan');
+    }
+
+    public function delete_barang($id_penjualan, $kode_barang)
+    {
+        $this->db->where('kode_barang', $kode_barang);
+        $this->db->where('id_penjualan', $id_penjualan);
+        $this->db->delete('itempenjualan');
+    }
+ 
  
 }
