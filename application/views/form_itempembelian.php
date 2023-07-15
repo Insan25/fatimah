@@ -61,7 +61,7 @@
                                             <th class="text-center">Harga</th>
                                             <th class="text-center">Qty</th>
                                             <th class="text-center">Subtotal</th>
-                                            <th width="10%" class="text-center">Aksi</tdh>
+                                            <th class="text-center">Aksi</tdh>
                                         </tr>
                                         <?php 
                                             $no = 1;
@@ -75,6 +75,7 @@
                                                 <td align="right">Rp. <?php echo number_format($row->qty * $row->harga,2,',','.'); ?></td>
                                                 <td class="text-center">
                                                     <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target=".bd-example-modal-sm">Ubah</button>
+                                                    <a href="<?php echo site_url('Pembelian/hapus_pembelianbarang/'.$row->id_barang.'/'.$row->id_pembelian);?>"><button type="button" class="btn btn-sm btn-danger">Hapus</button></a>
                                                 </td>
                                             </tr>
 
