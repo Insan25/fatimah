@@ -28,7 +28,6 @@
                                             <tr>
                                                 <th>No.</th>
                                                 <th>Tahun</th>
-                                                <th>Nama Barang</th>
                                                 <th>Jan</th>
                                                 <th>Feb</th>
                                                 <th>Mar</th>
@@ -59,7 +58,6 @@
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
-                                                <td></td>
                                             </tr>
 
                                             
@@ -68,7 +66,6 @@
                                         <tr>
                                                 <th>No.</th>
                                                 <th>Tahun</th>
-                                                <th>Nama Barang</th>
                                                 <th>Jan</th>
                                                 <th>Feb</th>
                                                 <th>Mar</th>
