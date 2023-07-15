@@ -97,4 +97,19 @@ class Pembelian extends CI_Controller {
 
 		} // Sebelah kiri merupakan nama database
 	}
+
+	public function hapus_pembelian($id_pembelian)
+	{
+		$this->Model_Pembelian->delete_pembelian($id_pembelian);
+		redirect(site_url('pembelian'));
+	}
+	
+	public function hapus_pembelianbarang($id_barang, $id_pembelian)
+	{
+		$this->Model_Pembelian->delete_barang($id_pembelian, $id_barang);
+
+		redirect(site_url('Pembelian/detail/'.$id_pembelian));
+	}
+
+
 }
