@@ -9,9 +9,7 @@ class Model_Kategori extends CI_Model {
 
     public function get_kategori_all(){
 
-        $sql = "SELECT kategori.* from kategori";
-
-        return $this->db->query($sql)->result();
+     return $this->db->get('kategori')->result();
     }
 
     public function insert($data){
