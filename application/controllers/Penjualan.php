@@ -115,4 +115,17 @@ class Penjualan extends CI_Controller {
 
 		} // Sebelah kiri merupakan nama database
 	}
+
+	public function hapus_penjualan($id_penjualan)
+	{
+		$this->Model_Penjualan->delete_penjualan($id_penjualan);
+		redirect(site_url('penjualan'));
+	}
+
+	public function hapus_penjualanbarang($kode_barang, $id_penjualan)
+	{
+		$this->Model_Penjualan->delete_barang($id_penjualan, $kode_barang);
+
+		redirect(site_url('Penjualan/detail/'.$id_penjualan));
+	}
 }
