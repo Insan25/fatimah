@@ -70,5 +70,20 @@ class Model_Pembelian extends CI_Model {
        return $res;
 
 	}
+
+    public function delete_pembelian($id_pembelian){
+        $this->db->where('id_pembelian', $id_pembelian);
+        $this->db->delete('pembelian');
+    }
+
+    public function delete_barang($id_pembelian, $id_barang)
+    {
+        $this->db->where('id_barang', $id_barang);
+        $this->db->where('id_pembelian', $id_pembelian);
+        $this->db->delete('itempembelian');
+    }
+
+ 
+ 
  
 }
