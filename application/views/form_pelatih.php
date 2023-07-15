@@ -50,7 +50,14 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label>Kategori</label>
-                                            <input type="text" name="id_kategori" class="form-control" value="<?php echo $id_kategori ?>">
+                                            <select class="form-control show-tick" name="id_kategori">
+                                            <?php
+                                            foreach($data_kategori as $kategori){?>
+                                            <option value='<?php echo $kategori->id_kategori ?>' <?php if($kategori->id_kategori == $id_kategori) {echo "selected"; } ?>>
+                                            <?php echo $kategori->nm_kategori ?>    
+                                        </option>
+                                            <?php } ?>
+                                            </select>
                                         </div>
                                         <div class="form-group col-md-12">
                                         <button type="submit" class="btn mb-1 btn-primary">Simpan</button>
