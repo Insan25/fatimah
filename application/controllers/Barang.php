@@ -23,6 +23,7 @@ class Barang extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Model_Barang');
+		$this->load->model('Model_Kategori');
 	}
 
 	public function index()
@@ -48,9 +49,10 @@ class Barang extends CI_Controller {
 			'nm_barang' => set_value('nm_barang'),
 			'harga_beli' => set_value('harga_beli'),
 			'harga_jual' => set_value('harga_jual'),
-			'stok' => set_value('stok'),
 			'id_kategori' => set_value('id_kategori'),
-			'data_barang' => $data_barang
+			'stok' => set_value('stok'),
+			'data_kategori'=>$this->Model_Kategori->get_kategori_all(),
+			'data_barang' => $data_barang,
 		);
 		$this->template->load('template/admin', 'form_pelatih', $data);
 	} //kalo ini melempar nama array biasa sebelah kanan adalah nama form
@@ -108,7 +110,8 @@ class Barang extends CI_Controller {
 			'harga_jual' => $barang_data->harga_jual,
 			'stok' => $barang_data->stok,
 			'id_kategori' => $barang_data->id_kategori,
-			'data_barang' => $data_barang
+			'data_barang' => $data_barang,
+			'data_kategori'=>$this->Model_Kategori->get_kategori_all(),
 		);
 
 		$this->template->load('template/admin','form_pelatih',$data);
