@@ -51,6 +51,7 @@
                                                     <td class="text-center">
                                                         <a href="<?php echo site_url('Penjualan/detail/'.$row->id_penjualan); ?>" class="btn btn-sm btn-primary">Detail</a>
                                                         <a href="<?php echo site_url('Penjualan/cetak/'.$row->id_penjualan); ?>" target="_blank" class="btn btn-sm btn-warning">Cetak</a>
+                                                        <a href="<?php echo site_url('Penjualan/hapus_penjualan/'.$row->id_penjualan);?>"><button type="button" class="btn btn-sm btn-danger">Hapus</button></a>
                                                     </td>   
                                                 </tr>
 
