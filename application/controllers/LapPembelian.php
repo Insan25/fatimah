@@ -18,6 +18,7 @@ class LapPembelian extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/userguide3/general/urls.html
 	 */
+	
 	public function index()
 	{
 		$this->template->load('template/admin', 'laporanpembelian');

@@ -50,6 +50,7 @@
                                                     <td align="right"><?php echo number_format($row->total,2,',','.'); ?></td>
                                                     <td class="text-center">
                                                         <a href="<?php echo site_url('Pembelian/detail/'.$row->id_pembelian); ?>" class="btn btn-sm btn-primary">Detail</a>
+                                                        <a href="<?php echo site_url('Pembelian/hapus_pembelian/'.$row->id_pembelian);?>"><button type="button" class="btn btn-sm btn-danger">Hapus</button></a>
                                                     </td>
                                                 </tr>
 

@@ -46,7 +46,7 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label>Stok</label>
-                                            <input type="text" name="stok" class="form-control" value="<?php echo $stok ?>">
+                                            <input type="number" name="stok" class="form-control" value="<?php echo $stok ?>">
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label>Kategori</label>
