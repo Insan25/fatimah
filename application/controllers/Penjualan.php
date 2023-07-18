@@ -62,6 +62,7 @@ class Penjualan extends CI_Controller {
 			'id_penjualan' => $id_penjualan,
 			'tanggal' => $penjualan_data->tanggal,
 			'nm_karyawan' => $penjualan_data->nm_karyawan,
+			'status_lunas' => $penjualan_data->status_lunas,
 			'jlh_barang' => $penjualan_data->jlh_barang,
 			'jlh_item' => $penjualan_data->jlh_item,
 			'total' => $penjualan_data->total,
@@ -80,6 +81,7 @@ class Penjualan extends CI_Controller {
 			'id_penjualan' => $id_penjualan,
 			'tanggal' => $penjualan_data->tanggal,
 			'nm_karyawan' => $penjualan_data->nm_karyawan,
+			'tunai' => $penjualan_data->tunai,
 			'jlh_barang' => $penjualan_data->jlh_barang,
 			'jlh_item' => $penjualan_data->jlh_item,
 			'total' => $penjualan_data->total,
@@ -102,14 +104,50 @@ class Penjualan extends CI_Controller {
 			$id_penjualan = $this->input->post('id_penjualan');
 			$this->detail($id_penjualan);
 		} else {
-			$id_penjualan = $this->input->post('id_penjualan');
+			// Periksa Ketersediaan Kode Barang
 			$kode_barang = $this->input->post('kode_barang');
-			$barang_data = $this->Model_Barang->get_barang($kode_barang);
-			$qty = 1;
-			$harga_jual = $barang_data->harga_jual;
+			$cek = $this->db->query('SELECT * FROM barang WHERE kd_barang="'.$kode_barang.'"');
+			if($cek->num_rows() > 0) 
+			{
+				$id_penjualan = $this->input->post('id_penjualan');
+				$kode_barang = $this->input->post('kode_barang');
+				$barang_data = $this->Model_Barang->get_barang($kode_barang);
+				$qty = 1;
+				$harga_jual = $barang_data->harga_jual;
+				
+
+				$this->Model_Penjualan->insert_item($kode_barang, $qty, $harga_jual, $id_penjualan);
+
+				redirect(site_url('Penjualan/detail/'.$id_penjualan));
+
+			} else {
+				$id_penjualan = $this->input->post('id_penjualan');
+
+				$this->session->set_flashdata('tdkada', 'Kode Barang Tidak Ditemukan!');
+
+				redirect(site_url('Penjualan/detail/'.$id_penjualan));
+			}
+
+			
 			
 
-			$this->Model_Penjualan->insert_item($kode_barang, $qty, $harga_jual, $id_penjualan);
+		} // Sebelah kiri merupakan nama database
+	}
+
+	public function proses_ubah_item()
+	{
+		$this->_rules();
+		if($this->form_validation->run() == FALSE) {
+			$id_penjualan = $this->input->post('id_penjualan');
+			$this->detail($id_penjualan);
+		} else {
+			$id_penjualan = $this->input->post('id_penjualan');
+			$kode_barang = $this->input->post('kode_barang');
+			$qty = $this->input->post('qty');
+			$harga_jual = $this->input->post('harga_jual');
+			
+
+			$this->Model_Penjualan->update_item($kode_barang, $qty, $harga_jual, $id_penjualan);
 
 			redirect(site_url('Penjualan/detail/'.$id_penjualan));
 
@@ -127,5 +165,17 @@ class Penjualan extends CI_Controller {
 		$this->Model_Penjualan->delete_barang($id_penjualan, $kode_barang);
 
 		redirect(site_url('Penjualan/detail/'.$id_penjualan));
+	}
+
+	public function set_lunas($id_penjualan)
+	{
+		$data = array(
+			'tunai' => $this->input->post('tunai'),
+			'status_lunas' => 'Y',
+		);
+
+		$this->Model_Penjualan->update($id_penjualan, $data);
+		redirect(site_url('Penjualan'));
+		
 	}
 }

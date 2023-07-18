@@ -64,9 +64,9 @@
                     echo '<tr>';
                     $qty        = str_repeat("&nbsp;", 1) . $row->qty. 'x ';
     
-                    $price      = '@' . number_format($row->harga_jual,0,',','.');
+                    $price      = '@' . number_format($row->iharga_jual,0,',','.');
 
-                    $subtotal   = str_repeat("&nbsp;",(16 - (strlen(number_format($row->subtotal,0,',','.'))))) . number_format($row->subtotal,0,',','.');
+                    $subtotal   = str_repeat("&nbsp;",(15 - (strlen(number_format($row->subtotal,0,',','.'))))) . number_format($row->subtotal,0,',','.');
 
                     // $total      = $v->total;
                     // $lentotal   = strlen($v->total);
@@ -82,7 +82,7 @@
                 $titleST = 'Total';
                 $titleST = $titleST. ' '. $jlh_barang.' produk';
                 $ST      = number_format($total,0,',','.');
-                $ST      = str_repeat("&nbsp;", ( 13 - strlen($ST)) ). $ST;
+                $ST      = str_repeat("&nbsp;", ( 12 - strlen($ST)) ). $ST;
                 echo '<tr><td>'. $titleST. $ST.'</td></tr>';
 
                 echo '<tr><td>'. str_repeat('-', 27).'</td></tr>';
@@ -107,20 +107,32 @@
                 // echo '<tr><td>'. $titleGT. $GT.'</td></tr>';
                 
                 //Bayar
-                // $titlePy = 'BAYAR';
-                // $titlePy = $titlePy. str_repeat("&nbsp;", ( 15 - strlen($titlePy)) );
-                // $Py      = Rupiah($d->pay, 2);
-                // $Py      = str_repeat("&nbsp;", ( 23 - strlen($Py)) ). $Py;
-                // echo '<tr><td>'. $titlePy. $Py.'</td></tr>';
+                $titlePy = 'Tunai';
+                $Py      = number_format($tunai,0,',','.');
+                $Py      = str_repeat("&nbsp;", ( 21 - strlen($Py)) ). $Py;
+                echo '<tr><td>'. $titlePy. $Py.'</td></tr>';
 
                 // $kembali= $d->payment_type == 'Angsuran' ? 0 : $d->pay - $d->grand_total;
-                // //Kembali
-                // $titleK = 'KEMBALI';
-                // $titleK = $titleK. str_repeat("&nbsp;", ( 15 - strlen($titleK)) );
-                // $Kb     = Rupiah(($kembali), 2);
-                // $Kb      = str_repeat("&nbsp;", ( 23 - strlen($Kb)) ). $Kb;
-                // echo '<tr><td>'. $titleK. $Kb.'</td></tr>';
+                //Kembali
+                $titleK = 'Kembali';
+                $Kb     = number_format($tunai - $total,0,',','.');
+                $Kb      = str_repeat("&nbsp;", ( 19 - strlen($Kb)) ). $Kb;
+                echo '<tr><td>'. $titleK. $Kb.'</td></tr>';
                 // echo '<tr><td>&nbsp;</td></tr>';
+
+                echo '<tr><td>'. str_repeat('-', 27).'</td></tr>';
+
+                 //Jumlah Barang
+                 $titleJb = 'Jlh. Barang';
+                 $Jb      = $jlh_barang;
+                 $Jb      = str_repeat("&nbsp;", ( 15 - strlen($Jb)) ). $Jb;
+                 echo '<tr><td>'. $titleJb. $Jb.'</td></tr>';
+
+                  //Jumlah Item
+                  $titleJi = 'Jlh. Item';
+                  $Ji      = $jlh_item;
+                  $Ji      = str_repeat("&nbsp;", ( 17 - strlen($Ji)) ). $Ji;
+                  echo '<tr><td>'. $titleJi. $Ji.'</td></tr>';
 
             }
             echo '</table>';

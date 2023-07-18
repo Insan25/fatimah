@@ -18,6 +18,7 @@
 
     <!-- Custom Stylesheet -->
     <link href="<?= base_url() ?>assets/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/plugins/sweetalert/css/sweetalert.css" rel="stylesheet">
 
 </head>
 
