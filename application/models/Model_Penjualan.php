@@ -33,6 +33,12 @@ class Model_Penjualan extends CI_Model {
         return true;
     }
 
+    public function update_item($kode_barang, $qty, $harga_jual, $id_penjualan){
+        $this->db->query("UPDATE itempenjualan SET qty=$qty, harga_jual=$harga_jual WHERE kode_barang='$kode_barang' AND id_penjualan=$id_penjualan");
+
+        return true;
+    }
+
     public function get_penjualan($id_penjualan)
     {
         $sql = "SELECT *,
@@ -48,7 +54,7 @@ class Model_Penjualan extends CI_Model {
 
     public function get_item_penjualan($id_penjualan){
 
-        $sql = "SELECT *,
+        $sql = "SELECT *, itempenjualan.harga_jual as iharga_jual,
                 (itempenjualan.qty * itempenjualan.harga_jual) AS subtotal 
                 from penjualan, itempenjualan, barang
                 WHERE penjualan.id_penjualan = itempenjualan.id_penjualan
@@ -57,11 +63,22 @@ class Model_Penjualan extends CI_Model {
 
         return $this->db->query($sql)->result();
     }
+
+    public function get_item_penjualan_by_kdbarang($id_penjualan, $kode_barang){
+
+        $sql = "SELECT *, itempenjualan.harga_jual as iharga_jual
+                from itempenjualan, barang
+                WHERE barang.kd_barang = itempenjualan.kode_barang
+                AND itempenjualan.id_penjualan = $id_penjualan
+                AND itempenjualan.kode_barang = '$kode_barang'";
+
+        return $this->db->query($sql)->row();
+    }
     
-    public function update($id_karyawan, $data)
+    public function update($id_penjualan, $data)
     {
-        $this->db->where('id_karyawan', $id_karyawan);
-        $this->db->update('karyawan', $data);
+        $this->db->where('id_penjualan', $id_penjualan);
+        $this->db->update('penjualan', $data);
     }
 
     public function inqlastid()

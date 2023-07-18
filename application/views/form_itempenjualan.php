@@ -49,6 +49,16 @@
                                             <td>Total</td>
                                             <td><b>Rp. <?php echo number_format($total,2,',','.'); ?></b></td>
                                         </tr>
+                                        <tr>
+                                            <td>Lunas</td>
+                                            <td>
+                                                <?php if($status_lunas == 'Y') { ?>
+                                                    <span class="badge badge-success">Lunas</span>
+                                                <?php } else { ?>
+                                                    <span class="badge badge-danger">Belum</span>
+                                                <?php } ?>
+                                            </td>
+                                        </tr>
                                     </table>
                                 </div><br/>
                             <h4 class="card-title">Item Penjualan</h4>
@@ -61,7 +71,9 @@
                                             <th class="text-center">Harga</th>
                                             <th class="text-center">Qty</th>
                                             <th class="text-center">Subtotal</th>
-                                            <th class="text-center">Aksi</tdh>
+                                            <?php if($status_lunas == 'T') { ?>
+                                                <th class="text-center">Aksi</th>
+                                            <?php } ?>
                                         </tr>
                                         <?php 
                                             $no = 1;
@@ -70,29 +82,62 @@
                                                 <td align="center"><?php echo $no; ?></td>
                                                 <td class="text-center"><?php echo $row->kode_barang; ?></td>
                                                 <td><?php echo $row->nm_barang; ?></td>
-                                                <td align="right">Rp. <?php echo number_format($row->harga_jual,2,',','.'); ?></td>
+                                                <td align="right">Rp. <?php echo number_format($row->iharga_jual,2,',','.'); ?></td>
                                                 <td align="right"><?php echo $row->qty; ?></td>
-                                                <td align="right">Rp. <?php echo number_format($row->qty * $row->harga_jual,2,',','.'); ?></td>
-                                                <td class="text-center">
-                                                    <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target=".bd-example-modal-sm">Ubah</button></a>
-                                                    <a href="<?php echo site_url('Penjualan/hapus_penjualanbarang/'.$row->kode_barang.'/'.$row->id_penjualan);?>"><button type="button" class="btn btn-sm btn-danger">Hapus</button></a>
-                                                </td>
+                                                <td align="right">Rp. <?php echo number_format($row->qty * $row->iharga_jual,2,',','.'); ?></td>
+                                                <?php if($status_lunas == 'T') { ?>
+                                                    <td class="text-center">
+                                                        <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target=".bd-example-modal-sm<?php echo $row->kode_barang; ?>">Ubah</button></a>
+                                                        <a href="<?php echo site_url('Penjualan/hapus_penjualanbarang/'.$row->kode_barang.'/'.$row->id_penjualan);?>"><button type="button" class="btn btn-sm btn-danger">Hapus</button></a>
+                                                    </td>
+                                                <?php } ?>
                                             </tr>
 
-                                            <?php $no++; } ?>
-                                            <form action="<?= $action; ?>" method="post">
-                                                <tr>
-                                                    <td colspan="6">
-                                                        <input type="text" name="kode_barang" class="form-control" autofocus />
-                                                        <input type="hidden" name="id_penjualan" value="<?= $id_penjualan; ?>" />
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <button class="btn btn-sm btn-info">Tambah</button>
-                                                    </td>
-                                                </tr>
-                                            </form>
+                                                <?php $no++; } ?>
+                                                <form action="<?= $action; ?>" method="post">
+                                                <?php if($status_lunas == 'T') { ?>
+                                                    <tr>
+                                                        <td colspan="6">
+                                                            <input type="text" name="kode_barang" class="form-control" autofocus autocomplete="off" />
+                                                            <input type="hidden" name="id_penjualan" value="<?= $id_penjualan; ?>" />
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <button class="btn btn-sm btn-info">Tambah</button>
+                                                        </td>
+                                                    </tr>
+                                                    <?php } ?>
+                                                </form>
                                     </table>
                                 </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="<?php echo site_url('Penjualan');?>" class="btn btn-sm btn-danger">Kembali</a>
+                                <?php if($status_lunas == 'T') { ?>
+                                    <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#basicModal">Pembayaran</button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="basicModal">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Pembayaran</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                                                    </button>
+                                                </div>
+                                                <form method="POST" action="<?= site_url('Penjualan/set_lunas/'.$id_penjualan) ?>">
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <label for="recipient-name" class="col-form-label">Nominal</label>
+                                                        <input type="number" name="tunai" class="form-control" autocomplete="off" >
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <input type="submit" class="btn btn-primary" value="Lunas">
+                                                </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -105,33 +150,42 @@
         <!--**********************************
             Content body end
         ***********************************-->
-
-        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Ubah Data Item Penjualan</h5>
-                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
-                        </button>
+        <?php 
+            foreach($itempenjualan_data as $items) { ?>
+                <div class="modal fade bd-example-modal-sm<?php echo $items->kode_barang; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Ubah Data Item Penjualan</h5>
+                                <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                                </button>
+                            </div>
+                            <?php 
+                                $item = $this->Model_Penjualan->get_item_penjualan_by_kdbarang($id_penjualan, $items->kode_barang);
+                            ?>
+                            <form action="<?= site_url('Penjualan/proses_ubah_item') ?>" method="post">
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="" class="col-form-label">Nama Barang</label>
+                                        <input type="hidden" value="<?= $id_penjualan; ?>" name="id_penjualan">
+                                        <input type="hidden" value="<?= $item->kode_barang; ?>" name="kode_barang">
+                                        <input type="text" name="nm_baang" class="form-control" value="<?= $item->nm_barang; ?>" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Harga</label>
+                                        <input type="text" name="harga_jual" class="form-control" value="<?= $item->iharga_jual; ?>" id="recipient-name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="col-form-label">Qty</label>
+                                        <input type="text" name="qty" class="form-control" id="recipient-name" value="<?= $item->qty; ?>">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="submit" value="Ubah" class="btn btn-primary">
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <form>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Harga</label>
-                                <input type="text" name="harga_jual" class="form-control" id="recipient-name">
-                            </div>
-                            <div class="form-group">
-                                <label for="message-text" class="col-form-label">Qty</label>
-                                <input type="text" name="qty" class="form-control" id="recipient-name">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </form>
                 </div>
-            </div>
-        </div>
-
+        <?php } ?>
         

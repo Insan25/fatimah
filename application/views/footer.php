@@ -50,6 +50,15 @@
     <script src="<?= base_url() ?>assets/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
     <script src="<?= base_url() ?>assets/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
 
+    <script src="<?= base_url() ?>assets/plugins/sweetalert/js/sweetalert.min.js"></script>
+    <script src="<?= base_url() ?>assets/plugins/sweetalert/js/sweetalert.init.js"></script>
+
+    <?php if($this->session->flashdata('tdkada')){ ?>
+        <script>
+            swal("<?= $this->session->flashdata('tdkada'); ?>", "Periksa Kembali Kode Barang Anda", "error");
+        </script>
+    <?php } ?>
+
 </body>
 
 </html>
