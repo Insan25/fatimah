@@ -34,6 +34,7 @@
                         <ul aria-expanded="false">
                             <li><a href="<?php echo site_url('LapPembelian'); ?>">Laporan Pembelian</a></li>
                             <li><a href="<?php echo site_url('LapPenjualan'); ?>">Laporan Penjualan</a></li>
+                            <li><a href="<?php echo site_url('LapStock/filter'); ?>">Laporan Stock</a></li>
                         </ul>
                     </li>
 
