@@ -18,7 +18,7 @@ class Model_laporan extends CI_Model {
     }
     
     function get_tahun_laporan_penjualan(){
-        $sql ="SELECT DISTINCT YEAR(penjualan,tanggal) as tahun 
+        $sql ="SELECT DISTINCT YEAR(penjualan.tanggal) as tahun 
         FROM penjualan
         ORDER BY (SELECT tahun) DESC";
     
