@@ -122,5 +122,24 @@ class Pembelian extends CI_Controller {
 		redirect(site_url('Pembelian/detail/'.$id_pembelian));
 	}
 
+	public function proses_ubah_item()
+	{
+		$this->_rules();
+		if($this->form_validation->run() == FALSE) {
+			$id_pembelian = $this->input->post('id_pembelian');
+			$this->detail($id_pembelian);
+		} else {
+			$id_pembelian = $this->input->post('id_pembelian');
+			$id_barang = $this->input->post('id_barang');
+			$qty = $this->input->post('qty');
+			
+
+			$this->Model_Pembelian->update_item($id_barang, $qty,$id_pembelian);
+
+			redirect(site_url('Pembelian/detail/'.$id_pembelian));
+
+		} // Sebelah kiri merupakan nama database
+	}
+
 
 }

@@ -40,6 +40,7 @@ class Kategori extends CI_Controller {
 
 		$data = array(
 			'action' => site_url('kategori/proses_tambah_kategori'),
+			'judul' => 'Tambah Kategori',
 			'id_kategori' => set_value('id_kategori'),
 			'nm_kategori' => set_value('nm_kategori'),
 			'kategori' => $kategori_data
@@ -84,6 +85,7 @@ class Kategori extends CI_Controller {
 		$kategori_data = $this->Model_Kategori->get_kategori_all();
 		$data = array(
 			'action' => site_url('kategori/proses_ubah_kategori'),
+			'judul' => 'Edit Kategori',
 			'id_kategori' => $data_kategori->id_kategori,
 			'nm_kategori' => $data_kategori->nm_kategori,
 			'kategori' => $kategori_data

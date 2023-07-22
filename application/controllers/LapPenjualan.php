@@ -17,9 +17,29 @@ class LapPenjualan extends CI_Controller {
 	 * So any other public methods not prefixed with an underscore will
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/userguide3/general/urls.html
+	 * 
 	 */
+
+
+	 public function __construct() 
+	 {
+		 parent::__construct();
+		 $this->load->model('Model_laporan');
+	 }
+
 	public function index()
 	{
-		$this->template->load('template/admin', 'laporanpenjualan');
+		$tahun = $this->input->post('tahun');
+		$laporan_penjualan = $this->Model_laporan->get_laporan_penjualan($tahun);
+		$get_tahun = $this->Model_laporan->get_tahun_laporan_penjualan($tahun);
+
+		$data = array(
+			'action' => site_url('LapPenjualan/index'),
+			'tahun' => set_value('tahun' , $tahun),
+			'get_tahun' => $get_tahun,
+			'laporan_penjualan' => $laporan_penjualan
+		);
+
+		$this->template->load('template/admin', 'laporanpenjualan', $data);
 	}
 }
