@@ -25,6 +25,25 @@ class Model_laporan extends CI_Model {
         return $this->db->query($sql)->result();
     }
 
+    function get_laporan_pembelian($tahun=null) {
+        $sql = "SELECT vrpembelian.* FROM vrpembelian";
+    
+        if(!empty($tahun)) {
+            $sql = "SELECT vrpembelian.* FROM vrpembelian
+            WHERE vrpembelian.tahun = '".$tahun."'";
+        }
+    
+        return $this->db->query($sql)->result();
+    }
+
+    function get_tahun_laporan_pembelian(){
+        $sql ="SELECT DISTINCT YEAR(pembelian.tanggal) as tahun 
+        FROM pembelian
+        ORDER BY (SELECT tahun) DESC";
+    
+        return $this->db->query($sql)->result();
+    }
+
     function get_laporan_stok($tgl=null){
         date_default_timezone_set('Asia/Makassar');
         $tglnow = date('Y-m-d');

@@ -134,7 +134,7 @@ class Pembelian extends CI_Controller {
 			$qty = $this->input->post('qty');
 			
 
-			$this->Model_Pembelian->update_item($id_barang, $qty,$id_pembelian);
+			$this->Model_Pembelian->update_item($id_barang,$qty,$id_pembelian);
 
 			redirect(site_url('Pembelian/detail/'.$id_pembelian));
 

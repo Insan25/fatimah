@@ -42,22 +42,25 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                        <?php $no = 1;
+                                            foreach($laporan_pembelian as $pembelian) { ?>
+                                           <tr>
+                                                <td><?= $no++; ?></td>
+                                                <td><?= $pembelian->tahun; ?></td>
+                                                <td><?= $pembelian->jan; ?></td>
+                                                <td><?= $pembelian->feb; ?></td>
+                                                <td><?= $pembelian->mar; ?></td>
+                                                <td><?= $pembelian->apr; ?></td>
+                                                <td><?= $pembelian->mei; ?></td>
+                                                <td><?= $pembelian->jun; ?></td>
+                                                <td><?= $pembelian->jul; ?></td>
+                                                <td><?= $pembelian->agt; ?></td>
+                                                <td><?= $pembelian->sep; ?></td>
+                                                <td><?= $pembelian->okt; ?></td>
+                                                <td><?= $pembelian->nop; ?></td>
+                                                <td><?= $pembelian->des; ?></td>
                                             </tr>
+                                            <?php } ?>
 
                                             
                                         </tbody>
