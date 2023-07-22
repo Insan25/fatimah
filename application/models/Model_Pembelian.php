@@ -83,6 +83,25 @@ class Model_Pembelian extends CI_Model {
         $this->db->delete('itempembelian');
     }
 
+    public function get_item_pembelian_by_kdbarang($id_pembelian, $id_barang){
+
+        $sql = "SELECT *
+                from itempembelian, barang
+                WHERE barang.kd_barang = itempembelian.id_barang
+                AND itempembelian.id_pembelian = $id_pembelian
+                AND itempembelian.id_barang = '$id_barang'";
+
+        return $this->db->query($sql)->row();
+    }
+
+    public function update_item($id_barang, $qty, $id_pembelian){
+        $this->db->query("UPDATE itempembelian SET qty=$qty WHERE id_barang='$id_barang' AND id_pembelian=$id_pembelian");
+
+        return true;
+    }
+
+    
+
  
  
  
