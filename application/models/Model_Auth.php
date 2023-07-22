@@ -19,7 +19,7 @@ class Model_Auth extends CI_Model
      redirect('Dashboard');
      }
      else{
-      $this->session->set_flashdata('tdkada','MAAF Username dan Password Anda salah!, Mohon diperiksa kembali');
+      $this->session->set_flashdata('ingfo','Maaf Username atau Password Anda salah!');
       redirect('Auth');
      }
     }
