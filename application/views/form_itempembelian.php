@@ -74,7 +74,7 @@
                                                 <td align="right"><?php echo $row->qty; ?></td>
                                                 <td align="right">Rp. <?php echo number_format($row->qty * $row->harga,2,',','.'); ?></td>
                                                 <td class="text-center">
-                                                    <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target=".bd-example-modal-sm">Ubah</button>
+                                                    <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target=".bd-example-modal-sm<?php echo $row->id_barang; ?>">Ubah</button>
                                                     <a href="<?php echo site_url('Pembelian/hapus_pembelianbarang/'.$row->id_barang.'/'.$row->id_pembelian);?>"><button type="button" class="btn btn-sm btn-danger">Hapus</button></a>
                                                 </td>
                                             </tr>
@@ -105,8 +105,9 @@
         <!--**********************************
             Content body end
         ***********************************-->
-
-        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+        <?php 
+        foreach($itempembelian_data as $items) { ?>
+        <div class="modal fade bd-example-modal-sm<?php echo $items->id_barang; ?>" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -114,24 +115,29 @@
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                         </button>
                     </div>
-                    <form>
+                    <?php 
+                        $item = $this->Model_Pembelian->get_item_pembelian_by_kdbarang($id_pembelian, $items->id_barang);
+                     ?>
+                    <form action="<?= site_url('Pembelian/proses_ubah_item') ?>" method="post">
                         <div class="modal-body">
-                            <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Harga</label>
-                                <input type="text" name="harga_beli" class="form-control" id="recipient-name">
+                             <div class="form-group">
+                                <label for="" class="col-form-label">Nama Barang</label>
+                                <input type="hidden" value="<?= $id_pembelian; ?>" name="id_pembelian">
+                                <input type="hidden" value="<?= $item->id_barang; ?>" name="id_barang">
+                                <input type="text" name="nm_baang" class="form-control" value="<?= $item->nm_barang; ?>" readonly>
                             </div>
                             <div class="form-group">
-                                <label for="message-text" class="col-form-label">Qty</label>
-                                <input type="text" name="qty" class="form-control" id="recipient-name">
+                            <label for="message-text" class="col-form-label">Qty</label>
+                            <input type="text" name="qty" class="form-control" id="recipient-name" value="<?= $item->qty; ?>">
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <input type="submit" value="Ubah" class="btn btn-primary">
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+        <?php } ?>
 
         
