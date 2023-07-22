@@ -42,7 +42,7 @@ class Pembelian extends CI_Controller {
 		date_default_timezone_set('Asia/Makassar');
 		$data = array(
 			'tanggal' => date('Y-m-d H:i:s'),
-			'id_karyawan' => 4,
+			'id_karyawan' => 1,
 		);
 
 		$this->Model_Pembelian->insert($data);
@@ -84,18 +84,29 @@ class Pembelian extends CI_Controller {
 			$id_pembelian = $this->input->post('id_pembelian');
 			$this->detail($id_pembelian);
 		} else {
-			$id_pembelian = $this->input->post('id_pembelian');
 			$kode_barang = $this->input->post('kode_barang');
-			$barang_data = $this->Model_Barang->get_barang($kode_barang);
-			$qty = 1;
-			$harga = $barang_data->harga_beli;
-			
+			$cek = $this->db->query('SELECT * FROM barang WHERE kd_barang="'.$kode_barang.'"');
+			if($cek->num_rows() > 0) 
+			{
+				$id_pembelian = $this->input->post('id_pembelian');
+				$kode_barang = $this->input->post('kode_barang');
+				$barang_data = $this->Model_Barang->get_barang($kode_barang);
+				$qty = 1;
+				$harga = $barang_data->harga_beli;
+				
 
-			$this->Model_Pembelian->insert_item($kode_barang, $qty, $harga, $id_pembelian);
+				$this->Model_Pembelian->insert_item($kode_barang, $qty, $harga, $id_pembelian);
 
-			redirect(site_url('Pembelian/detail/'.$id_pembelian));
+				redirect(site_url('Pembelian/detail/'.$id_pembelian));
 
-		} // Sebelah kiri merupakan nama database
+			} else {
+				$id_pembelian = $this->input->post('id_pembelian');
+
+				$this->session->set_flashdata('tdkada', 'Kode Barang Tidak Ditemukan!');
+
+				redirect(site_url('Pembelian/detail/'.$id_pembelian));
+			}
+	}
 	}
 
 	public function hapus_pembelian($id_pembelian)
