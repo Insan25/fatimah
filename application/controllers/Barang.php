@@ -24,6 +24,15 @@ class Barang extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Model_Barang');
 		$this->load->model('Model_Kategori');
+		$this->is_logged_in();
+	}
+
+	public function is_logged_in()
+	{
+		if ($this->session->userdata('logged_in')==FALSE)
+		{
+			redirect('Auth');
+		} 
 	}
 
 	public function index()

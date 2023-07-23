@@ -49,7 +49,7 @@
         ***********************************-->
         <div class="nav-header">
             <div class="brand-logo">
-                <a href="index.html">
+                <a href="<?= site_url('Dashboard'); ?>">
                     <b class="logo-abbr"><img src="<?= base_url() ?>assets/images/logo-apa.png" alt=""> </b>
                     <span class="logo-compact"><img src="<?= base_url() ?>assets/images/logo-compact.png" alt=""></span>
                     <span class="brand-title">
@@ -88,12 +88,10 @@
                             <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
                                 <div class="dropdown-content-body">
                                     <ul>
-                                        <li>
-                                            <a href="app-profile.html"><i class="icon-user"></i> <span>Profile</span></a>
-                                        </li>
                                         
-                                        <hr class="my-2">
-                                        <li><a href="page-login.html"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                        <li><i class="icon-user"></i> <span><?= $this->session->userdata('nm_karyawan'); ?></span></li>
+                                        <hr/>
+                                        <li><a href="<?= site_url('Auth/proses_logout'); ?>"><i class="icon-key"></i> <span>Logout</span></a></li>
                                     </ul>
                                 </div>
                             </div>

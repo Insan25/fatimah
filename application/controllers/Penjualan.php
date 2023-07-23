@@ -24,7 +24,16 @@ class Penjualan extends CI_Controller {
         parent::__construct();
 		$this->load->model('Model_Penjualan');
 		$this->load->model('Model_Barang');
-     }
+		$this->is_logged_in();
+	}
+
+	public function is_logged_in()
+	{
+		if ($this->session->userdata('logged_in')==FALSE)
+		{
+			redirect('Auth');
+		} 
+	}
 
 	public function index()
 	{
@@ -42,7 +51,7 @@ class Penjualan extends CI_Controller {
 		date_default_timezone_set('Asia/Makassar');
 		$data = array(
 			'tanggal' => date('Y-m-d H:i:s'),
-			'id_karyawan' => 1,
+			'id_karyawan' => $this->session->userdata('id_karyawan'),
 		);
 
 		$this->Model_Penjualan->insert($data);
