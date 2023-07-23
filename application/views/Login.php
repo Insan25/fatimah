@@ -45,7 +45,7 @@
                                 <a class="text-center" href="index.html"> <h4>TOKO FATIMAH</h4></a>
                                 <form class="mt-5 mb-5 login-input" method="POST" action="<?php echo site_url('Auth/proses_login'); ?>">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Username" name="id_karyawan" required >
+                                        <input type="text" class="form-control" placeholder="Username" name="nm_karyawan" required >
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control" placeholder="Password" name="password" required>
