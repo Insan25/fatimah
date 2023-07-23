@@ -52,10 +52,10 @@ class Auth extends CI_Controller {
 	
 	public function proses_login()
 	{	
-		$id_karyawan = $this->input->post('id_karyawan');
+		$nm_karyawan = $this->input->post('nm_karyawan');
 		$password = $this->input->post('password');
 		
-        $query = $this->db->query('SELECT * FROM karyawan WHERE id_karyawan="'.$id_karyawan.'" AND password="'.$password.'"');
+        $query = $this->db->query('SELECT * FROM karyawan WHERE nm_karyawan="'.$nm_karyawan.'" AND password="'.$password.'"');
 
 		if($query->num_rows() > 0) 
 			{
@@ -63,7 +63,7 @@ class Auth extends CI_Controller {
 			$row = $query->row();
 			
 			$datalogin = array(
-				   'id_karyawan' => $row->id_karyawan,
+					'id_karyawan' => $row->id_karyawan,
                    'nm_karyawan'  => $row->nm_karyawan,
 				   'logged_in' => TRUE
             );
