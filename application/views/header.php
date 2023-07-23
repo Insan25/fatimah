@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Fatimah Store</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>assets/images/iconftmh.png">
     <!-- Pignose Calender -->
     <link href="<?= base_url() ?>assets/plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
     <!-- Chartist -->
@@ -50,10 +50,10 @@
         <div class="nav-header">
             <div class="brand-logo">
                 <a href="index.html">
-                    <b class="logo-abbr"><img src="<?= base_url() ?>assets/images/logo-apa.png" alt=""> </b>
+                    <b class="logo-abbr"><img src="<?= base_url() ?>assets/images/toko.png" alt=""> </b>
                     <span class="logo-compact"><img src="<?= base_url() ?>assets/images/logo-compact.png" alt=""></span>
                     <span class="brand-title">
-                        <img src="<?= base_url() ?>assets/images/logo-fatimah.png" alt="">
+                        <img src="<?= base_url() ?>assets/images/fatimah_logo.png" alt="">
                     </span>
                 </a>
             </div>
