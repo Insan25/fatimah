@@ -5,7 +5,7 @@
     </head>
     <body class="struk">
         <section class="sheet">
-        <img src="<?= base_url() ?>assets/images/paypal.png" alt="" width="100%">
+        <img src="<?= base_url() ?>assets/images/blackvers.png" alt="" width="100%">
         <?php $judul = "FATIMAH STORE"; ?>
         <h2><?= str_repeat("&nbsp;", (16 - strlen($judul))). $judul; ?></h2>
         <!-- <table cellpadding="0" cellspacing="0">
