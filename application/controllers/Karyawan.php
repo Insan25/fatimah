@@ -23,7 +23,16 @@ class Karyawan extends CI_Controller {
      {
          parent::__construct();
          $this->load->model('Model_Karyawan');
-     }
+		 $this->is_logged_in();
+	}
+
+	public function is_logged_in()
+	{
+		if ($this->session->userdata('logged_in')==FALSE)
+		{
+			redirect('Auth');
+		} 
+	}
 
 	public function index()
 	{

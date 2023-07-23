@@ -59,12 +59,6 @@
         </script>
     <?php } ?>
 
-    <?php if($this->session->flashdata('ingfo')){ ?>
-        <script>
-            swal("<?= $this->session->flashdata('ingfo'); ?>", "Periksa Kembali Username Dan Password Anda", "info");
-        </script>
-    <?php } ?>
-
 </body>
 
 </html>
