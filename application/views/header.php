@@ -49,14 +49,11 @@
         ***********************************-->
         <div class="nav-header">
             <div class="brand-logo">
-
-                <a href="index.html">
-                    <b class="logo-abbr"><img src="<?= base_url() ?>assets/images/toko.png" alt=""> </b>
-
                 <a href="<?= site_url('Dashboard'); ?>">
+                <b class="logo-abbr"><img src="<?= base_url() ?>assets/images/toko.png" alt=""></b>
                     <span class="logo-compact"><img src="<?= base_url() ?>assets/images/logo-compact.png" alt=""></span>
                     <span class="brand-title">
-                        <img src="<?= base_url() ?>assets/images/fatimah_logo.png" alt="">
+                        <img src="<?= base_url() ?>assets/images/fatimahlogo.png" alt="">
                     </span>
                 </a>
             </div>
