@@ -94,6 +94,9 @@
                                     </table>
                                 </div>
                             </div>
+                             <div class="card-footer">
+                                <a href="<?php echo site_url('Pembelian');?>" class="btn btn-sm btn-danger">Kembali</a>
+                             </div>
                         </div>
                     </div>
                 </div>
