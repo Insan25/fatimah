@@ -23,7 +23,16 @@ class Karyawan extends CI_Controller {
      {
          parent::__construct();
          $this->load->model('Model_Karyawan');
-     }
+		 $this->is_logged_in();
+	}
+
+	public function is_logged_in()
+	{
+		if ($this->session->userdata('logged_in')==FALSE)
+		{
+			redirect('Auth');
+		} 
+	}
 
 	public function index()
 	{
@@ -49,6 +58,7 @@ class Karyawan extends CI_Controller {
     
             $data = array(
                 'action' => site_url('karyawan/proses_tambah_karyawan'),
+				'judul' => 'Tambah Karyawan',
                 'id_karyawan' => set_value('id_karyawan'),
                 'nm_karyawan' => set_value('nm_karyawan'),
                 'password' => set_value('password'),
@@ -91,6 +101,7 @@ class Karyawan extends CI_Controller {
 		$data_karyawan = $this->Model_Karyawan->get_karyawan_all();
 		$data = array(
 			'action' => site_url('Karyawan/proses_ubah_karyawan'),
+			'judul' => 'Edit Karyawan',
 			'id_karyawan' => $karyawan_data->id_karyawan,
 			'nm_karyawan' => $karyawan_data->nm_karyawan,
 			'password' =>$karyawan_data->password,

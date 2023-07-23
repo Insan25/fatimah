@@ -8,7 +8,7 @@
                 <div class="row page-titles mx-0">
                 <div class="col p-md-0">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Beranda</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Laporan</a></li>
                         <li class="breadcrumb-item active"><a href="javascript:void(0)">Laporan Pembelian</a></li>
                     </ol>
                 </div>
@@ -21,7 +21,6 @@
                                 <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Laporan Pembelian</h4>
-                                    <a href=<?php echo site_url() ?> ><button type="button" class="btn mb-1 btn-primary"><i class="fa fa-print"></i> Cetak</button></a>
                                     <div class="table-responsive">
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
@@ -43,22 +42,25 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                        <?php $no = 1;
+                                            foreach($laporan_pembelian as $pembelian) { ?>
+                                           <tr>
+                                                <td><?= $no++; ?></td>
+                                                <td><?= $pembelian->tahun; ?></td>
+                                                <td><?= $pembelian->jan; ?></td>
+                                                <td><?= $pembelian->feb; ?></td>
+                                                <td><?= $pembelian->mar; ?></td>
+                                                <td><?= $pembelian->apr; ?></td>
+                                                <td><?= $pembelian->mei; ?></td>
+                                                <td><?= $pembelian->jun; ?></td>
+                                                <td><?= $pembelian->jul; ?></td>
+                                                <td><?= $pembelian->agt; ?></td>
+                                                <td><?= $pembelian->sep; ?></td>
+                                                <td><?= $pembelian->okt; ?></td>
+                                                <td><?= $pembelian->nop; ?></td>
+                                                <td><?= $pembelian->des; ?></td>
                                             </tr>
+                                            <?php } ?>
 
                                             
                                         </tbody>

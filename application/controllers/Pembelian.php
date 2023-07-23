@@ -24,7 +24,16 @@ class Pembelian extends CI_Controller {
         parent::__construct();
 		$this->load->model('Model_Pembelian');
 		$this->load->model('Model_Barang');
-     }
+		$this->is_logged_in();
+	}
+
+	public function is_logged_in()
+	{
+		if ($this->session->userdata('logged_in')==FALSE)
+		{
+			redirect('Auth');
+		} 
+	}
 
 	public function index()
 	{
@@ -42,7 +51,7 @@ class Pembelian extends CI_Controller {
 		date_default_timezone_set('Asia/Makassar');
 		$data = array(
 			'tanggal' => date('Y-m-d H:i:s'),
-			'id_karyawan' => 1,
+			'id_karyawan' => $this->session->userdata('id_karyawan'),
 		);
 
 		$this->Model_Pembelian->insert($data);
@@ -74,6 +83,11 @@ class Pembelian extends CI_Controller {
 	public function _rules()
 	{
 		$this->form_validation->set_rules('kode_barang','Kode Barang', 'trim|required');
+	
+	}
+	public function _rules_item()
+	{
+		$this->form_validation->set_rules('id_barang','Kode Barang', 'trim|required');
 	
 	}
 
@@ -120,6 +134,25 @@ class Pembelian extends CI_Controller {
 		$this->Model_Pembelian->delete_barang($id_pembelian, $id_barang);
 
 		redirect(site_url('Pembelian/detail/'.$id_pembelian));
+	}
+
+	public function proses_ubah_item()
+	{
+		$this->_rules_item();
+		if($this->form_validation->run() == FALSE) {
+			$id_pembelian = $this->input->post('id_pembelian');
+			$this->detail($id_pembelian);
+		} else {
+			$id_pembelian = $this->input->post('id_pembelian');
+			$id_barang = $this->input->post('id_barang');
+			$qty = $this->input->post('qty');
+			
+
+			$this->Model_Pembelian->update_item($id_barang,$qty,$id_pembelian);
+
+			redirect(site_url('Pembelian/detail/'.$id_pembelian));
+
+		} // Sebelah kiri merupakan nama database
 	}
 
 

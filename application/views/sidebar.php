@@ -8,7 +8,7 @@
                     <li class="nav-label">Toko Fatimah</li>
                     <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="fa fa-home"></i><span class="nav-text">Beranda</span>
+                            <i class="fa fa-home"></i><span class="nav-text">Data Master</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="<?php echo site_url('Barang'); ?>">Data Barang</a></li>

@@ -24,6 +24,15 @@ class Barang extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Model_Barang');
 		$this->load->model('Model_Kategori');
+		$this->is_logged_in();
+	}
+
+	public function is_logged_in()
+	{
+		if ($this->session->userdata('logged_in')==FALSE)
+		{
+			redirect('Auth');
+		} 
 	}
 
 	public function index()
@@ -45,6 +54,7 @@ class Barang extends CI_Controller {
 
 		$data = array(
 			'action' => site_url('barang/proses_tambah_barang'),
+			'judul' => 'Tambah Barang',
 			'kd_barang' => set_value('kd_barang'),
 			'nm_barang' => set_value('nm_barang'),
 			'harga_beli' => set_value('harga_beli'),
@@ -104,6 +114,7 @@ class Barang extends CI_Controller {
 		$data_barang = $this->Model_Barang->get_barang_all();
 		$data = array(
 			'action' => site_url('barang/proses_ubah_barang'),
+			'judul' => 'Edit Barang',
 			'kd_barang' => $barang_data->kd_barang,
 			'nm_barang' => $barang_data->nm_barang,
 			'harga_beli' => $barang_data->harga_beli,

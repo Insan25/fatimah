@@ -19,8 +19,35 @@ class LapPembelian extends CI_Controller {
 	 * @see https://codeigniter.com/userguide3/general/urls.html
 	 */
 	
+
+	 public function __construct() 
+	 {
+		 parent::__construct();
+		 $this->load->model('Model_laporan');
+		 $this->is_logged_in();
+	}
+
+	public function is_logged_in()
+	{
+		if ($this->session->userdata('logged_in')==FALSE)
+		{
+			redirect('Auth');
+		} 
+	}
+
 	public function index()
 	{
-		$this->template->load('template/admin', 'laporanpembelian');
+		$tahun = $this->input->post('tahun');
+		$laporan_pembelian = $this->Model_laporan->get_laporan_pembelian($tahun);
+		$get_tahun = $this->Model_laporan->get_tahun_laporan_pembelian($tahun);
+
+		$data = array(
+			'action' => site_url('LapPembelian/index'),
+			'tahun' => set_value('tahun' , $tahun),
+			'get_tahun' => $get_tahun,
+			'laporan_pembelian' => $laporan_pembelian
+		);
+
+		$this->template->load('template/admin', 'laporanpembelian', $data);
 	}
 }

@@ -6,11 +6,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Quixlab - Bootstrap Admin Dashboard Template by Themefisher.com</title>
+    <title>Toko Fatimah | Login</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>assets/images/favicon.png">
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> -->
     <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/plugins/sweetalert/css/sweetalert.css" rel="stylesheet">
     
 </head>
 
@@ -42,9 +43,9 @@
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
                                 <a class="text-center" href="index.html"> <h4>TOKO FATIMAH</h4></a>
-                                <form class="mt-5 mb-5 login-input" method="POST" action="<?php echo site_url('Auth/ceklogin'); ?>">
+                                <form class="mt-5 mb-5 login-input" method="POST" action="<?php echo site_url('Auth/proses_login'); ?>">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Username" name="id_karyawan" required>
+                                        <input type="text" class="form-control" placeholder="Username" name="nm_karyawan" required >
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control" placeholder="Password" name="password" required>
@@ -70,6 +71,14 @@
     <script src="<?= base_url() ?>assets/js/settings.js"></script>
     <script src="<?= base_url() ?>assets/js/gleek.js"></script>
     <script src="<?= base_url() ?>assets/js/styleSwitcher.js"></script>
+    <script src="<?= base_url() ?>assets/plugins/sweetalert/js/sweetalert.min.js"></script>
+    <script src="<?= base_url() ?>assets/plugins/sweetalert/js/sweetalert.init.js"></script>
+
+    <?php if($this->session->flashdata('ingfo')){ ?>
+        <script>
+            swal("<?= $this->session->flashdata('ingfo'); ?>", "Periksa Kembali Username Dan Password Anda", "info");
+        </script>
+    <?php } ?>
 </body>
 </html>
 
