@@ -87,7 +87,7 @@
                                                 <td align="right">Rp. <?php echo number_format($row->qty * $row->iharga_jual,2,',','.'); ?></td>
                                                 <?php if($status_lunas == 'T') { ?>
                                                     <td class="text-center">
-                                                        <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target=".bd-example-modal-sm<?php echo $row->kode_barang; ?>">Ubah</button></a>
+                                                        <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target=".bd-example-modal-sm<?php echo $row->kode_barang; ?>">Edit</button></a>
                                                         <a href="<?php echo site_url('Penjualan/hapus_penjualanbarang/'.$row->kode_barang.'/'.$row->id_penjualan);?>"><button type="button" class="btn btn-sm btn-danger">Hapus</button></a>
                                                     </td>
                                                 <?php } ?>
@@ -156,7 +156,7 @@
                     <div class="modal-dialog modal-sm">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Ubah Data Item Penjualan</h5>
+                                <h5 class="modal-title">Edit Data Item Penjualan</h5>
                                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                                 </button>
                             </div>
