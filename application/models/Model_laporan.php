@@ -18,11 +18,11 @@ class Model_laporan extends CI_Model {
     }
     
     function get_tahun_laporan_penjualan(){
-        $sql ="SELECT DISTINCT YEAR(penjualan.tanggal) as tahun 
+        $sql = $this->db->query("SELECT DISTINCT YEAR(penjualan.tanggal) as tahun 
         FROM penjualan
-        ORDER BY (SELECT tahun) DESC";
+        ORDER BY (SELECT tahun) DESC");
     
-        return $this->db->query($sql)->result();
+        return $sql;
     }
 
     function get_laporan_pembelian($tahun=null) {

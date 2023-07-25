@@ -89,8 +89,6 @@
                                 <div class="dropdown-content-body">
                                     <ul>
                                         
-                                        <li><i class="icon-user"></i> <span><?= $this->session->userdata('nm_karyawan'); ?></span></li>
-                                        <hr/>
                                         <li><a href="<?= site_url('Auth/proses_logout'); ?>"><i class="icon-key"></i> <span>Logout</span></a></li>
                                     </ul>
                                 </div>
