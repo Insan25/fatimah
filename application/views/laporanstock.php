@@ -9,7 +9,7 @@
                 <div class="col p-md-0">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Laporan</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Laporan Stock</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Laporan Stok</a></li>
                     </ol>
                 </div>
                 </div>
@@ -20,7 +20,7 @@
                             <div class="col-12">
                                 <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Laporan Penjualan</h4>
+                                    <h4 class="card-title">Laporan Stok</h4>
                                     <div class="col-12">
                                         <form action="<?php echo site_url('LapStock/filter'); ?>" method="post">
                                             <div class="row">
@@ -44,10 +44,10 @@
                                                 <th class="text-center">Kode Barang</th>
                                                 <th class="text-center">Nama Barang</th>
                                                 <th class="text-center">Kategori</th>
-                                                <th class="text-center">Stock Awal</th>
+                                                <th class="text-center">Stok Awal</th>
                                                 <th class="text-center">Jlh. Pembelian</th>
                                                 <th class="text-center">Jlh. Penjualan</th>
-                                                <th class="text-center">Stock Akhir</th>
+                                                <th class="text-center">Stok Akhir</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -73,10 +73,10 @@
                                                 <th class="text-center">Kode Barang</th>
                                                 <th class="text-center">Nama Barang</th>
                                                 <th class="text-center">Kategori</th>
-                                                <th class="text-center">Stock Awal</th>
+                                                <th class="text-center">Stok Awal</th>
                                                 <th class="text-center">Jlh. Pembelian</th>
                                                 <th class="text-center">Jlh. Penjualan</th>
-                                                <th class="text-center">Stock Akhir</th>
+                                                <th class="text-center">Stok Akhir</th>
                                             </tr>
                                         </tfoot>
                                     </table>
