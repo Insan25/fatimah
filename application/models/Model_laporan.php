@@ -59,7 +59,16 @@ class Model_laporan extends CI_Model {
             AND barang.kd_barang = itempembelian.id_barang 
             AND itempembelian.id_pembelian = pembelian.id_pembelian
             AND pembelian.tanggal < (SELECT '$tglnow' + INTERVAL 1 DAY)),0) as jlh_beli,
-            (SELECT b.stok - 'jlh_jual' + 'jlh_beli') as stok_real
+            (SELECT b.stok - IFNUll((SELECT SUM(qty) FROM barang, itempenjualan, penjualan 
+            WHERE barang.kd_barang = b.kd_barang
+            AND barang.kd_barang = itempenjualan.kode_barang 
+            AND itempenjualan.id_penjualan = penjualan.id_penjualan
+            AND penjualan.status_lunas = 'Y'
+            AND penjualan.tanggal < (SELECT '$tglnow' + INTERVAL 1 DAY)),0) +  IFNUll((SELECT SUM(qty) FROM barang, itempembelian, pembelian 
+            WHERE barang.kd_barang = b.kd_barang
+            AND barang.kd_barang = itempembelian.id_barang 
+            AND itempembelian.id_pembelian = pembelian.id_pembelian
+            AND pembelian.tanggal < (SELECT '$tglnow' + INTERVAL 1 DAY)),0)) as stok_real
             FROM barang b
             INNER JOIN kategori k ON k.id_kategori = b.id_kategori
             ORDER BY k.nm_kategori ASC, b.nm_barang ASC";
