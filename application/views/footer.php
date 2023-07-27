@@ -187,6 +187,12 @@
         </script>
     <?php } ?>
 
+    <?php if($this->session->flashdata('tdkcukup')){ ?>
+        <script>
+            swal("<?= $this->session->flashdata('tdkcukup'); ?>", "Periksa Kembali Stock Barang Anda", "error");
+        </script>
+    <?php } ?>
+
 </body>
 
 </html>
