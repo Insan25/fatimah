@@ -124,10 +124,23 @@ class Penjualan extends CI_Controller {
 				$qty = 1;
 				$harga_jual = $barang_data->harga_jual;
 				
+				// Periksa ketersediaan stok
+				$tgl = date('Y-m-d');
+				$stok = $this->Model_Penjualan->get_stok_barang($tgl, $kode_barang)->stok_real;
+				if(($stok - $qty) < 0){
 
-				$this->Model_Penjualan->insert_item($kode_barang, $qty, $harga_jual, $id_penjualan);
+					$id_penjualan = $this->input->post('id_penjualan');
 
-				redirect(site_url('Penjualan/detail/'.$id_penjualan));
+					$this->session->set_flashdata('tdkada', 'Kode Barang Tidak Ditemukan!');
+
+					redirect(site_url('Penjualan/detail/'.$id_penjualan));
+
+				} else {
+					
+					$this->Model_Penjualan->insert_item($kode_barang, $qty, $harga_jual, $id_penjualan);
+
+					redirect(site_url('Penjualan/detail/'.$id_penjualan));
+				}
 
 			} else {
 				$id_penjualan = $this->input->post('id_penjualan');
@@ -154,11 +167,26 @@ class Penjualan extends CI_Controller {
 			$kode_barang = $this->input->post('kode_barang');
 			$qty = $this->input->post('qty');
 			$harga_jual = $this->input->post('harga_jual');
+
+			// Periksa ketersediaan stok
+			$tgl = date('Y-m-d');
+			$stok = $this->Model_Penjualan->get_stok_barang($tgl, $kode_barang)->stok_real;
+			if(($stok - $qty) < 0){
+
+				$id_penjualan = $this->input->post('id_penjualan');
+
+				$this->session->set_flashdata('tdkcukup', 'Stock Barang Tidak Cukup!');
+
+				redirect(site_url('Penjualan/detail/'.$id_penjualan));
+
+			} else {
+				
+				$this->Model_Penjualan->update_item($kode_barang, $qty, $harga_jual, $id_penjualan);
+
+				redirect(site_url('Penjualan/detail/'.$id_penjualan));
+			}
 			
 
-			$this->Model_Penjualan->update_item($kode_barang, $qty, $harga_jual, $id_penjualan);
-
-			redirect(site_url('Penjualan/detail/'.$id_penjualan));
 
 		} // Sebelah kiri merupakan nama database
 	}
