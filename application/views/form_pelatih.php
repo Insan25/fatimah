@@ -35,7 +35,7 @@
                                             <label>Nama Barang</label>
                                             <input type="hidden" name="kd_barang" id="kode_barang" value=" <?php echo $kd_barang ?>">
                                             <input type="text" name="nm_barang" class="form-control" value=" <?php echo $nm_barang ?>"
-                                            id="nm_barang">
+                                            id="nama_barang">
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label>Harga Beli</label>
