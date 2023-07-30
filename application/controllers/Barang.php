@@ -83,6 +83,13 @@ class Barang extends CI_Controller {
 		if($this->form_validation->run() == FALSE) {
 			$this->tambah_barang();
 		} else {
+			$kd_barang = $this->input->post('kd_barang');
+			$query = $this->db->query('SELECT * FROM barang WHERE kd_barang="'.$kd_barang.'"');
+
+			if($query->num_rows() > 0) {
+				$this->session->set_flashdata('tdkadas','Maaf Kode Barang Yang Anda Input Sudah Ada !');
+				redirect('Barang/tambah_barang');
+			} else {
 			$data = array(
 			'kd_barang' => $this->input->post('kd_barang'),
 			'nm_barang' => $this->input->post('nm_barang'),
@@ -100,6 +107,7 @@ class Barang extends CI_Controller {
 
 		} // Sebelah kiri merupakan nama database
 		
+	}
 	}
 
 	public function hapus_barang($kd_barang)
