@@ -193,6 +193,12 @@
         </script>
     <?php } ?>
 
+    <?php if($this->session->flashdata('tdkadas')){ ?>
+        <script>
+            swal("<?= $this->session->flashdata('tdkadas'); ?>", "Periksa Kembali Kode Barang Yang Ingin Anda Input", "error");
+        </script>
+    <?php } ?>
+
 </body>
 
 </html>
