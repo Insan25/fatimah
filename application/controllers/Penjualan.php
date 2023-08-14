@@ -131,7 +131,7 @@ class Penjualan extends CI_Controller {
 
 					$id_penjualan = $this->input->post('id_penjualan');
 
-					$this->session->set_flashdata('tdkada', 'Kode Barang Tidak Ditemukan!');
+					$this->session->set_flashdata('tdkcukup', 'Stock Barang Tidak Cukup!');
 
 					redirect(site_url('Penjualan/detail/'.$id_penjualan));
 

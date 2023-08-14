@@ -66,6 +66,7 @@ class Barang extends CI_Controller {
 		);
 		$this->template->load('template/admin', 'form_pelatih', $data);
 	} //kalo ini melempar nama array biasa sebelah kanan adalah nama form
+	//sebelah kiri melempar variable sebelah kanan nama dari form.
 	
 	public function _rules()
 	{
@@ -76,6 +77,7 @@ class Barang extends CI_Controller {
 		$this->form_validation->set_rules('stok','Stok','trim|required');
 		$this->form_validation->set_rules('id_kategori','Id Kategori','trim|required');
 	}
+	// set rules pertama merupakan nama dari form jika nama disini berbeda dengan nama form maka tidak bisa menambahkan data
 
 	public function proses_tambah_barang()
 	{
@@ -106,6 +108,7 @@ class Barang extends CI_Controller {
 			redirect(site_url('Barang/tambah_barang'));
 
 		} // Sebelah kiri merupakan nama database
+		//Sebelah kanan merupakan nama dari form.
 		
 	}
 	}
@@ -132,7 +135,7 @@ class Barang extends CI_Controller {
 			'data_barang' => $data_barang,
 			'data_kategori'=>$this->Model_Kategori->get_kategori_all(),
 		);
-
+		//Sebelah kiri merupakan variabel untuk ditaruh di value pada form
 		$this->template->load('template/admin','form_pelatih',$data);
 	}
 
@@ -157,4 +160,5 @@ class Barang extends CI_Controller {
 			redirect(site_url('Barang'));
 		}
 	}
+	//Sebelah kiri nama database sebelah kanan nama form
 }
